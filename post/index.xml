@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Chuik</title>
+    <title>Posts on Jinchuika</title>
     <link>/post/</link>
-    <description>Recent content in Posts on Chuik</description>
+    <description>Recent content in Posts on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
     <lastBuildDate>Tue, 26 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Estructuras de datos simples en Python (Parte 0)</title>
+      <link>/post/estructuras_python_1/</link>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/estructuras_python_1/</guid>
+      <description>En esta serie de posts introduciremos conceptos básicos para almacenar y manipular datos utilizando Python y distintas librerías. El enfoque principal es poder llegar a manipular datos para crear un algoritmo inteligente.
+ Los datos a utilizar en inteligencia artificial se representan en matrices. En el siguiente ejemplo, tenemos una matriz de 4x3: 4 filas por 3 columnas.
+   Encabezado1 Encabezado2 Encabezado3     Dato1-1 Dato1-2 Dato1-3   Dato2-1 Dato2-2 Dato2-3   Dato3-1 Dato3-2 Dato3-3   Dato4-1 Dato4-2 Dato4-3    En este caso, la matriz es una estructura de 2 dimensiones, pues tiene filas y columnas.</description>
+    </item>
     
     <item>
       <title>¡Hola mundo!</title>
