@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chuik</title>
+    <link>/</link>
+    <description>Recent content on Chuik</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-mx</language>
+    <lastBuildDate>Tue, 26 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>¡Hola mundo!</title>
+      <link>/post/hello_world/</link>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hello_world/</guid>
+      <description>¡Hola! Este es mi (más reciente intento de crear un) blog. Estaré publicando cosas sobre programación, tecnología, inteligencia artificial y matemática próximamente.</description>
+    </item>
+    
+    <item>
+      <title>Acerca de</title>
+      <link>/about/</link>
+      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>¡Hola! Mi nombre es Luis Carlos Contreras (usualmente Chuik) y soy un ingeniero de software. Creé este blog para compartir algunas de mis experiencias en programación.
+Tengo seis años de experiencia en desarrollo de software, cuatro como desarrollador web y dos como ingeniero de inteligencia artificial. A lo largo de los años, he aprendido muchos lenguajes de programación y tecnologías como:
+ Python (para back-end y machine learning) Linux (para administrar servidores) Swift and Java (para desarrollo móvil eventualmente) JavaScript (para no disfrutar la vida) Data Science (porque decir estadística está pasado de moda)  Algunos links sobre mí:</description>
+    </item>
+    
+    <item>
+      <title>Showcase</title>
+      <link>/showcase/</link>
+      <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/showcase/</guid>
+      <description>Header 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.</description>
+    </item>
+    
+  </channel>
+</rss>
