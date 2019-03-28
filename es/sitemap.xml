@@ -3,94 +3,99 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/post/estructuras_python_1/</loc>
+    <loc>https://jinchuika.github.io/post/2-turing/</loc>
+    <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jinchuika.github.io/post/estructuras_python_1/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/hello_world/</loc>
+    <loc>https://jinchuika.github.io/post/hello_world/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://jinchuika.github.io/about/</loc>
     <lastmod>2019-01-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/about/"
+                href="https://jinchuika.github.io/en/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="/about/"
+                href="https://jinchuika.github.io/about/"
                 />
   </url>
   
   <url>
-    <loc>/showcase/</loc>
+    <loc>https://jinchuika.github.io/showcase/</loc>
     <lastmod>2019-01-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/showcase/"
+                href="https://jinchuika.github.io/en/showcase/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="/showcase/"
+                href="https://jinchuika.github.io/showcase/"
                 />
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://jinchuika.github.io/categories/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/categories/"
+                href="https://jinchuika.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="/categories/"
+                href="https://jinchuika.github.io/categories/"
                 />
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2019-03-26T00:00:00+00:00</lastmod>
+    <loc>https://jinchuika.github.io/</loc>
+    <lastmod>2019-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/"
+                href="https://jinchuika.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="/"
+                href="https://jinchuika.github.io/"
                 />
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2019-03-26T00:00:00+00:00</lastmod>
+    <loc>https://jinchuika.github.io/post/</loc>
+    <lastmod>2019-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>https://jinchuika.github.io/tags/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/"
+                href="https://jinchuika.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="/tags/"
+                href="https://jinchuika.github.io/tags/"
                 />
   </url>
   

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jinchuika</title>
-    <link>/en/</link>
+    <link>https://jinchuika.github.io/en/</link>
     <description>Recent content on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
     <lastBuildDate>Fri, 25 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jinchuika.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>/en/about/</link>
+      <link>https://jinchuika.github.io/en/about/</link>
       <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/en/about/</guid>
+      <guid>https://jinchuika.github.io/en/about/</guid>
       <description>Hi! My name is Luis Carlos Contreras (aka Chuik) and I&amp;rsquo;m a software engineer. I created this blog to share some of my experiences with programming.
 I have six years of experience in software development, four of them as a web developer and two as an artificial intelligence engineer. Throughout the years, I&amp;rsquo;ve learnt a bunch of programming languages and technologies including:
  Python (for back-end and machine learning) Linux (server management) Swift and Java (for mobile app development) JavaScript (for hating my life working on front-end) Data Science (because statistics is too mainstream)  Useful links about me:</description>
@@ -24,10 +24,10 @@ I have six years of experience in software development, four of them as a web de
     
     <item>
       <title>Showcase</title>
-      <link>/en/showcase/</link>
+      <link>https://jinchuika.github.io/en/showcase/</link>
       <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/en/showcase/</guid>
+      <guid>https://jinchuika.github.io/en/showcase/</guid>
       <description>Header 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.</description>
     </item>
     
