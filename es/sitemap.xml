@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jinchuika.github.io/post/3-inclusion-templates-django/</loc>
+    <lastmod>2019-03-27T22:54:02-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jinchuika.github.io/post/2-turing/</loc>
     <lastmod>2019-03-27T00:00:00+00:00</lastmod>
   </url>
@@ -63,8 +68,20 @@
   </url>
   
   <url>
-    <loc>https://jinchuika.github.io/</loc>
+    <loc>https://jinchuika.github.io/tags/django/</loc>
+    <lastmod>2019-03-27T22:54:02-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jinchuika.github.io/tags/geoffry-hinton/</loc>
     <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jinchuika.github.io/</loc>
+    <lastmod>2019-03-27T22:54:02-06:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -79,13 +96,32 @@
   </url>
   
   <url>
-    <loc>https://jinchuika.github.io/post/</loc>
+    <loc>https://jinchuika.github.io/tags/machine-learning/</loc>
     <lastmod>2019-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://jinchuika.github.io/categories/noticia/</loc>
+    <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jinchuika.github.io/post/</loc>
+    <lastmod>2019-03-27T22:54:02-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jinchuika.github.io/tags/python/</loc>
+    <lastmod>2019-03-27T22:54:02-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jinchuika.github.io/tags/</loc>
+    <lastmod>2019-03-27T22:54:02-06:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -97,6 +133,18 @@
                 hreflang="es"
                 href="https://jinchuika.github.io/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://jinchuika.github.io/categories/web-development/</loc>
+    <lastmod>2019-03-27T22:54:02-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jinchuika.github.io/tags/yann-lecun/</loc>
+    <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

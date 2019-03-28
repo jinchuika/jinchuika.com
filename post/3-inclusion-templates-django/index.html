@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+    <script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://jinchuika.github.io"
+    },
+    "articleSection" : "post",
+    "name" : "Inclusión de templates en Django",
+    "headline" : "Inclusión de templates en Django",
+    "description" : "Hace unos días empecé a sentir que el código en uno de los componentes principales de mi sistema se estaba saliendo de control. Tengo un modelo al que hacen referencia muchos otros, así que hice una página donde se pudiera ver toda la información relacionada a él. De pronto caí en cuenta de que el template estaba creciendo muchísimo más allá de lo que me habría gustado. Estaba dedicando mucho tiempo a editar cosas que no eran de mi entidad principal, y encontrar dónde estaban esas cosas era una tarea colosal. La solución que encontré fue utilizar el método para incluir templates en Django, y así logré ordenar todo de nuevo. En vista de lo aprendido, no pude sino compartir mi mecánica. Así que vamos a verlo.",
+    "inLanguage" : "es",
+    "author" : "Luis Carlos Contreras",
+    "creator" : "Luis Carlos Contreras",
+    "publisher": "Jinchuika",
+    "accountablePerson" : "",
+    "copyrightHolder" : "Luis Carlos Contreras",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-03-27 22:54:02 -0600 CST",
+    "dateModified" : "2019-03-27 22:54:02 -0600 CST",
+    "url" : "https://jinchuika.github.io/post/3-inclusion-templates-django/",
+    "wordCount" : "599",
+    "keywords" : [ "django","python","Blog" ]
+}
+</script>
+
+    <title>Inclusión de templates en Django :: Jinchuika — Blog de programación</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Este post fue migrado de mi antiguo blog. El código fue modificado para ajustarse a versiones más recientes de Django.
+ Hace unos días empecé a sentir que el código en uno de los componentes principales de mi sistema se estaba saliendo de control. Tengo un modelo al que hacen referencia muchos otros, así que hice una página donde se pudiera ver toda la información relacionada a él. De pronto caí en cuenta de que el template estaba creciendo muchísimo más allá de lo que me habría gustado."/>
+<meta name="keywords" content="blog,tecnología,programación,inteligencia artificial,machine learning"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://jinchuika.github.io/post/3-inclusion-templates-django/" />
+
+
+<link rel="stylesheet" href="https://jinchuika.github.io/assets/style.css">
+
+
+<link rel="stylesheet" href="https://jinchuika.github.io/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://jinchuika.github.io/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://jinchuika.github.io/img/favicon.ico">
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Inclusión de templates en Django :: Jinchuika — Blog de programación" />
+<meta name="twitter:description" content="Este post fue migrado de mi antiguo blog. El código fue modificado para ajustarse a versiones más recientes de Django.
+ Hace unos días empecé a sentir que el código en uno de los componentes principales de mi sistema se estaba saliendo de control. Tengo un modelo al que hacen referencia muchos otros, así que hice una página donde se pudiera ver toda la información relacionada a él. De pronto caí en cuenta de que el template estaba creciendo muchísimo más allá de lo que me habría gustado." />
+<meta name="twitter:site" content="https://jinchuika.github.io" />
+<meta name="twitter:creator" content="Luis Carlos Contreras" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="es" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Inclusión de templates en Django :: Jinchuika — Blog de programación">
+<meta property="og:description" content="Este post fue migrado de mi antiguo blog. El código fue modificado para ajustarse a versiones más recientes de Django.
+ Hace unos días empecé a sentir que el código en uno de los componentes principales de mi sistema se estaba saliendo de control. Tengo un modelo al que hacen referencia muchos otros, así que hice una página donde se pudiera ver toda la información relacionada a él. De pronto caí en cuenta de que el template estaba creciendo muchísimo más allá de lo que me habría gustado." />
+<meta property="og:url" content="https://jinchuika.github.io/post/3-inclusion-templates-django/" />
+<meta property="og:site_name" content="Inclusión de templates en Django" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:section" content="web development" />
+<meta property="article:published_time" content="2019-03-27 22:54:02 -0600 CST" />
+
+
+
+
+
+
+
+</head>
+<body class="dark-theme">
+<div class="container">
+  <header class="header">
+  <span class="header__inner">
+    <a href="https://jinchuika.github.io/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Jinchuika</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://jinchuika.github.io/about">Acerca de</a></li>
+        
+      
+        
+          <li><a href="https://jinchuika.github.io/en">English</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://jinchuika.github.io/about">Acerca de</a></li>
+      
+    
+      
+        <li><a href="https://jinchuika.github.io/en">English</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+  <div class="content">
+    
+  <div class="post">
+    <h2 class="post-title"><a href="https://jinchuika.github.io/post/3-inclusion-templates-django/">Inclusión de templates en Django</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-03-27
+        </span>
+      
+      <span class="post-author">— Escrito por Luis Carlos Contreras</span>
+      
+        <span class="post-read-time">— 3 minutos</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="https://jinchuika.github.io/tags/django">django</a>&nbsp;
+        
+          #<a href="https://jinchuika.github.io/tags/python">python</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      <blockquote>
+<p>Este post fue migrado de mi antiguo blog. El código fue modificado para ajustarse a versiones más recientes de Django.</p>
+</blockquote>
+
+<p>Hace unos días empecé a sentir que el código en uno de los componentes principales de mi sistema se estaba saliendo de control. Tengo un modelo al que hacen referencia muchos otros, así que hice una página donde se pudiera ver toda la información relacionada a él. De pronto caí en cuenta de que el template estaba creciendo muchísimo más allá de lo que me habría gustado. Estaba dedicando mucho tiempo a editar cosas que no eran de mi entidad principal, y encontrar dónde estaban esas cosas era una tarea colosal. La solución que encontré fue utilizar el método para incluir templates en Django, y así logré ordenar todo de nuevo. En vista de lo aprendido, no pude sino compartir mi mecánica. Así que vamos a verlo.</p>
+
+<p>Primero vamos a ver cómo se estructura el proyecto de prueba. Para ello vamos a crear una entidad principal, que tenga otras dos relaciones:</p>
+
+<pre><code class="language-python"># models.py
+from django.db import models
+
+class Post(models.Model):
+    titulo = models.CharField(max_length=20)
+    cuerpo = models.TextField()
+
+class Comentario(models.Model):
+    post = models.ForeignKey(Post, related_name='comentarios', on_delete=models.PROTECT)
+    fecha = models.DateField()
+    usuario = models.CharField(max_length=50)
+    mensaje = models.TextField()
+</code></pre>
+
+<p>Voy a hacer una vista simple para mostrar un objeto de la entidad principal.</p>
+
+<pre><code class="language-python"># views.py
+from .models import Post
+from django.views.generic import DetailView
+
+class PostView(DetailView):
+    model = Post
+    template_name = 'post_detail.html'
+</code></pre>
+
+<p>Ahora lo importante, el template. Al final del post muestro los comentarios que se han hecho para ese post en particular. Es un recorrido simple utilizando el <code>related_name</code> del modelo.</p>
+
+<pre><code class="language-html">&lt;article&gt;
+    &lt;h1&gt;{{ post.titulo }}&lt;/h1&gt;
+    {{ post.cuerpo|linebreaks }}
+    &lt;h3&gt;Comentarios&lt;/h3&gt;
+    {% for comentario in post.comentarios.all %}
+        &lt;h4&gt;{{ comentario.usuario }}&lt;/h4&gt;
+        {{ comentario.mensaje|linebreaks }}
+        &lt;h6&gt;Enviado el {{ comentario.fecha }}&lt;/h6&gt;
+        &lt;hr /&gt;
+    {% endfor %}
+&lt;/article&gt;
+</code></pre>
+
+<p>Hast ahí todo bien. Pero ahora imaginemos que las clases para el comentario fueran mucho más elaboradas. Cosas como el link al perfil del usuario, mostrar su foto de perfil, permitir algo de markdown o texto enriquecido en los comentarios; todo sería un añadido bastante grande al template del post. Además, ¿qué pasaría luego si quisiera utilizar el mismo formato para comentarios en otro lugar que no fueran un post? Tendría que copiar y pegar esta parte de código en cada uno de esos templates; sin mencionar que al hacer un cambio tendría que remplazar todos. Para solucionarlo, utilizaré entonces la <strong>inclusión de templates</strong> de Django.</p>
+
+<p>Para ello voy a crear un nuevo template, donde encapsularé el comentario. Veamos el contenido de <code>coment_template.html</code>.</p>
+
+<pre><code class="language-html">&lt;h4&gt;{{ comentario.usuario }}&lt;/h4&gt;
+{{ comentario.mensaje|linebreaks }}
+&lt;h6&gt;Enviado el {{ comentario.fecha }}&lt;/h6&gt;
+&lt;hr /&gt;
+</code></pre>
+
+<p>Ahora, en el template principal del post, voy a incluir el nuevo template en lugar de escribir todo el código.</p>
+
+<pre><code class="language-html">&lt;h3&gt;Comentarios&lt;/h3&gt;
+{% for comentario in post.comentarios.all %}
+    {% include &quot;coment_template.html&quot; with comentario=comentario %}
+{% endfor %}
+</code></pre>
+
+<p>La página generada es exactamente igual, pero ahora puedo permitirme hacer todas las modificaciones que desee en el template del comentario y reutilizarlo cuando quiera.</p>
+
+<p>Ahora puedo permitirme tener comentarios anidados, para permitir a los usuarios responderse entre sí sin necesidad de hacer demasiados cambios.</p>
+
+<p>Vamos a modificar el modelo:</p>
+
+<pre><code class="language-python">class Comentario(models.Model):
+    post = models.ForeignKey(Post, related_name='comentarios')
+    padre = models.ForeignKey(&quot;self&quot;, related_name='hijos', null=True)
+    fecha = models.DateField()
+    usuario = models.CharField(max_length=50)
+    mensaje = models.TextField()
+</code></pre>
+
+<p>Y ahora el template del comentario:</p>
+
+<pre><code class="language-html">&lt;h4&gt;{{ comentario.usuario }}&lt;/h4&gt;
+{{ comentario.mensaje|linebreaks }}
+&lt;h6&gt;Enviado el {{ comentario.fecha }}&lt;/h6&gt;
+{% if comentario.hijos.count &gt; 0 %}
+    &lt;ul&gt;
+        {% for hijo in comentario.hijos.all %}
+            &lt;li&gt;
+                {% include &quot;coment_template.html&quot; with comentario=hijo %}
+            &lt;/li&gt;
+        {% endfor %}
+    &lt;/ul&gt;
+{% endif %}
+</code></pre>
+
+<p>Y ahora puedo dejar los visitantes de mi blog se maten unos a otros en mis comentarios :)</p>
+
+<p><img class="alignnone size-full wp-image-277" src="screenshot.png" alt="Selection_351" width="539" height="824" /></p>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Leer otros post</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+          
+            <span class="button next">
+              <a href="https://jinchuika.github.io/post/2-turing/">
+                <span class="button__text">Geoff Hinton, Yann LeCun y Yoshua Bengio ganan el premio &#39;Alan Turing&#39;</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+    
+
+
+
+
+
+<div id="sharing">
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjinchuika.github.io%2fpost%2f3-inclusion-templates-django%2f" target="_blank" rel="noopener" aria-label="Facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Inclusi%c3%b3n%20de%20templates%20en%20Django&amp;url=https%3a%2f%2fjinchuika.github.io%2fpost%2f3-inclusion-templates-django%2f" target="_blank" rel="noopener" aria-label="Twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fjinchuika.github.io%2fpost%2f3-inclusion-templates-django%2f&amp;resubmit=true&amp;title=Inclusi%c3%b3n%20de%20templates%20en%20Django." target="_blank" rel="noopener" aria-label="Reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg></div>Reddit</div>
+</a>
+
+
+</div>
+
+
+
+    
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jinchuika" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="https://jinchuika.github.io/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Jinchuika</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Luis Carlos Contreras</span>
+      </div>
+    
+  </div>
+</footer>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-60599533-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+<script src="https://jinchuika.github.io/assets/main.js"></script>
+<script src="https://jinchuika.github.io/assets/prism.js"></script>
+
+  
+</div>
+
+</body>
+</html>
