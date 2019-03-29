@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jinchuika</title>
-    <link>https://jinchuika.github.io/</link>
+    <link>https://jinchuika.com/</link>
     <description>Recent content on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
     <lastBuildDate>Wed, 27 Mar 2019 22:54:02 -0600</lastBuildDate>
     
-	<atom:link href="https://jinchuika.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jinchuika.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Inclusión de templates en Django</title>
-      <link>https://jinchuika.github.io/post/3-inclusion-templates-django/</link>
+      <link>https://jinchuika.com/post/3-inclusion-templates-django/</link>
       <pubDate>Wed, 27 Mar 2019 22:54:02 -0600</pubDate>
       
-      <guid>https://jinchuika.github.io/post/3-inclusion-templates-django/</guid>
+      <guid>https://jinchuika.com/post/3-inclusion-templates-django/</guid>
       <description>Este post fue migrado de mi antiguo blog. El código fue modificado para ajustarse a versiones más recientes de Django.
  Hace unos días empecé a sentir que el código en uno de los componentes principales de mi sistema se estaba saliendo de control. Tengo un modelo al que hacen referencia muchos otros, así que hice una página donde se pudiera ver toda la información relacionada a él. De pronto caí en cuenta de que el template estaba creciendo muchísimo más allá de lo que me habría gustado.</description>
     </item>
     
     <item>
       <title>Geoff Hinton, Yann LeCun y Yoshua Bengio ganan el premio &#39;Alan Turing&#39;</title>
-      <link>https://jinchuika.github.io/post/2-turing/</link>
+      <link>https://jinchuika.com/post/2-turing/</link>
       <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jinchuika.github.io/post/2-turing/</guid>
+      <guid>https://jinchuika.com/post/2-turing/</guid>
       <description>Yann LeCun, Geoff Hinton y Yoshua Bengio acaban de ganar el premio &amp;lsquo;Alan Turing&amp;rsquo;, también conocido como el premio Nobel de la computación. Lo más sorprendente es que ninguno de ellos la ganara antes, pues los avances obtenidos por todos son increíbles. Para tener una idea de lo badass que son estos sujetos, veamos un poco de su historia.
 Geoff Hinton El profesor universitario en la NYU, actualmente de 71 años, fue pionero en el desarrollo de las redes neuronales.</description>
     </item>
     
     <item>
       <title>Estructuras de datos simples en Python (Parte 0)</title>
-      <link>https://jinchuika.github.io/post/estructuras_python_1/</link>
+      <link>https://jinchuika.com/post/estructuras_python_1/</link>
       <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jinchuika.github.io/post/estructuras_python_1/</guid>
+      <guid>https://jinchuika.com/post/estructuras_python_1/</guid>
       <description>En esta serie de posts introduciremos conceptos básicos para almacenar y manipular datos utilizando Python y distintas librerías. El enfoque principal es poder llegar a manipular datos para crear un algoritmo inteligente.
  Los datos a utilizar en inteligencia artificial se representan en matrices. En el siguiente ejemplo, tenemos una matriz de 4x3: 4 filas por 3 columnas.
    Encabezado1 Encabezado2 Encabezado3     Dato1-1 Dato1-2 Dato1-3   Dato2-1 Dato2-2 Dato2-3   Dato3-1 Dato3-2 Dato3-3   Dato4-1 Dato4-2 Dato4-3    En este caso, la matriz es una estructura de 2 dimensiones, pues tiene filas y columnas.</description>
@@ -44,19 +44,19 @@ Geoff Hinton El profesor universitario en la NYU, actualmente de 71 años, fue p
     
     <item>
       <title>¡Hola mundo!</title>
-      <link>https://jinchuika.github.io/post/hello_world/</link>
+      <link>https://jinchuika.com/post/hello_world/</link>
       <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jinchuika.github.io/post/hello_world/</guid>
+      <guid>https://jinchuika.com/post/hello_world/</guid>
       <description>¡Hola! Este es mi (más reciente intento de crear un) blog. Estaré publicando cosas sobre programación, tecnología, inteligencia artificial y matemática próximamente.</description>
     </item>
     
     <item>
       <title>Acerca de</title>
-      <link>https://jinchuika.github.io/about/</link>
+      <link>https://jinchuika.com/about/</link>
       <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jinchuika.github.io/about/</guid>
+      <guid>https://jinchuika.com/about/</guid>
       <description>¡Hola! Mi nombre es Luis Carlos Contreras (usualmente Chuik) y soy un ingeniero de software. Creé este blog para compartir algunas de mis experiencias en programación.
 Tengo seis años de experiencia en desarrollo de software, cuatro como desarrollador web y dos como ingeniero de inteligencia artificial. A lo largo de los años, he aprendido muchos lenguajes de programación y tecnologías como:
  Python (para back-end y machine learning) Linux (para administrar servidores) Swift and Java (para desarrollo móvil eventualmente) JavaScript (para no disfrutar la vida) Data Science (porque decir estadística está pasado de moda)  Algunos links sobre mí:</description>
@@ -64,10 +64,10 @@ Tengo seis años de experiencia en desarrollo de software, cuatro como desarroll
     
     <item>
       <title>Showcase</title>
-      <link>https://jinchuika.github.io/showcase/</link>
+      <link>https://jinchuika.com/showcase/</link>
       <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jinchuika.github.io/showcase/</guid>
+      <guid>https://jinchuika.com/showcase/</guid>
       <description>Header 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.</description>
     </item>
     

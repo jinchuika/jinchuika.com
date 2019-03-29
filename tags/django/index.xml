@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Django on Jinchuika</title>
-    <link>https://jinchuika.github.io/tags/django/</link>
+    <link>https://jinchuika.com/tags/django/</link>
     <description>Recent content in Django on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
     <lastBuildDate>Wed, 27 Mar 2019 22:54:02 -0600</lastBuildDate>
     
-	<atom:link href="https://jinchuika.github.io/tags/django/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jinchuika.com/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Inclusión de templates en Django</title>
-      <link>https://jinchuika.github.io/post/3-inclusion-templates-django/</link>
+      <link>https://jinchuika.com/post/3-inclusion-templates-django/</link>
       <pubDate>Wed, 27 Mar 2019 22:54:02 -0600</pubDate>
       
-      <guid>https://jinchuika.github.io/post/3-inclusion-templates-django/</guid>
+      <guid>https://jinchuika.com/post/3-inclusion-templates-django/</guid>
       <description>Este post fue migrado de mi antiguo blog. El código fue modificado para ajustarse a versiones más recientes de Django.
  Hace unos días empecé a sentir que el código en uno de los componentes principales de mi sistema se estaba saliendo de control. Tengo un modelo al que hacen referencia muchos otros, así que hice una página donde se pudiera ver toda la información relacionada a él. De pronto caí en cuenta de que el template estaba creciendo muchísimo más allá de lo que me habría gustado.</description>
     </item>

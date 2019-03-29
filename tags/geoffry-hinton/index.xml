@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Geoffry Hinton on Jinchuika</title>
-    <link>https://jinchuika.github.io/tags/geoffry-hinton/</link>
+    <link>https://jinchuika.com/tags/geoffry-hinton/</link>
     <description>Recent content in Geoffry Hinton on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
     <lastBuildDate>Wed, 27 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://jinchuika.github.io/tags/geoffry-hinton/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jinchuika.com/tags/geoffry-hinton/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Geoff Hinton, Yann LeCun y Yoshua Bengio ganan el premio &#39;Alan Turing&#39;</title>
-      <link>https://jinchuika.github.io/post/2-turing/</link>
+      <link>https://jinchuika.com/post/2-turing/</link>
       <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jinchuika.github.io/post/2-turing/</guid>
+      <guid>https://jinchuika.com/post/2-turing/</guid>
       <description>Yann LeCun, Geoff Hinton y Yoshua Bengio acaban de ganar el premio &amp;lsquo;Alan Turing&amp;rsquo;, también conocido como el premio Nobel de la computación. Lo más sorprendente es que ninguno de ellos la ganara antes, pues los avances obtenidos por todos son increíbles. Para tener una idea de lo badass que son estos sujetos, veamos un poco de su historia.
 Geoff Hinton El profesor universitario en la NYU, actualmente de 71 años, fue pionero en el desarrollo de las redes neuronales.</description>
     </item>

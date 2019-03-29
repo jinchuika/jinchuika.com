@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Jinchuika</title>
-    <link>https://jinchuika.github.io/tags/</link>
+    <link>https://jinchuika.com/tags/</link>
     <description>Recent content in Tags on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
     <lastBuildDate>Wed, 27 Mar 2019 22:54:02 -0600</lastBuildDate>
     
-	<atom:link href="https://jinchuika.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jinchuika.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Django</title>
-      <link>https://jinchuika.github.io/tags/django/</link>
+      <link>https://jinchuika.com/tags/django/</link>
       <pubDate>Wed, 27 Mar 2019 22:54:02 -0600</pubDate>
       
-      <guid>https://jinchuika.github.io/tags/django/</guid>
+      <guid>https://jinchuika.com/tags/django/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Geoffry Hinton</title>
-      <link>https://jinchuika.github.io/tags/geoffry-hinton/</link>
+      <link>https://jinchuika.com/tags/geoffry-hinton/</link>
       <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jinchuika.github.io/tags/geoffry-hinton/</guid>
+      <guid>https://jinchuika.com/tags/geoffry-hinton/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://jinchuika.github.io/tags/machine-learning/</link>
+      <link>https://jinchuika.com/tags/machine-learning/</link>
       <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jinchuika.github.io/tags/machine-learning/</guid>
+      <guid>https://jinchuika.com/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://jinchuika.github.io/tags/python/</link>
+      <link>https://jinchuika.com/tags/python/</link>
       <pubDate>Wed, 27 Mar 2019 22:54:02 -0600</pubDate>
       
-      <guid>https://jinchuika.github.io/tags/python/</guid>
+      <guid>https://jinchuika.com/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Yann Lecun</title>
-      <link>https://jinchuika.github.io/tags/yann-lecun/</link>
+      <link>https://jinchuika.com/tags/yann-lecun/</link>
       <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jinchuika.github.io/tags/yann-lecun/</guid>
+      <guid>https://jinchuika.com/tags/yann-lecun/</guid>
       <description></description>
     </item>
     
