@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>Pre-processing data using Pandas</title>
-      <link>https://jinchuika.com/en/post/1-preprocessing/</link>
+      <title>Preprocessing data for data science (Part 1)</title>
+      <link>https://jinchuika.com/en/post/1-preprocessing-part-1/</link>
       <pubDate>Thu, 28 Mar 2019 22:46:51 -0600</pubDate>
       
-      <guid>https://jinchuika.com/en/post/1-preprocessing/</guid>
-      <description></description>
+      <guid>https://jinchuika.com/en/post/1-preprocessing-part-1/</guid>
+      <description>A recent study showed that 60% of the time spent by data scientists consists only on cleaning and organizing data. So in order to make the most out of our time, my data science fellas, in this four-part series we&amp;rsquo;ll se how to preprocess data like a boss, using the Pandas Python library and the preprocessing module from scikit-learn.
+Pretty much everything we do in an AI algorithm are matrix operations.</description>
     </item>
     
   </channel>
