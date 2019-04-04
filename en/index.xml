@@ -6,10 +6,22 @@
     <description>Recent content on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
-    <lastBuildDate>Thu, 28 Mar 2019 22:46:51 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 03 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jinchuika.com/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://jinchuika.com/en/privacy-policy/</link>
+      <pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchuika.com/en/privacy-policy/</guid>
+      <description>Effective date: April 03, 2019
+Jinchuika (&amp;ldquo;us&amp;rdquo;, &amp;ldquo;we&amp;rdquo;, or &amp;ldquo;our&amp;rdquo;) operates the https://jinchuika.com/ website (the &amp;ldquo;Service&amp;rdquo;).
+This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. Our Privacy Policy for Jinchuika is created with the help of the Free Privacy Policy Generator.
+We use your data to provide and improve the Service.</description>
+    </item>
     
     <item>
       <title>Preprocessing data for data science (Part 1)</title>
@@ -23,11 +35,11 @@ Pretty much everything we do in an AI algorithm are matrix operations.</descript
     
     <item>
       <title>About</title>
-      <link>https://jinchuika.com/en/about/</link>
+      <link>https://jinchuika.com/en/about-me/</link>
       <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jinchuika.com/en/about/</guid>
-      <description>Hi! My name is Luis Carlos Contreras (aka Chuik) and I&amp;rsquo;m a software engineer. I created this blog to share some of my experiences with programming.
+      <guid>https://jinchuika.com/en/about-me/</guid>
+      <description>Hi! My name is Luis Carlos Contreras (aka Jinchuika) and I&amp;rsquo;m a software engineer. I created this blog to share some of my experiences with programming.
 I have six years of experience in software development, four of them as a web developer and two as an artificial intelligence engineer. Throughout the years, I&amp;rsquo;ve learnt a bunch of programming languages and technologies including:
  Python (for back-end and machine learning) Linux (server management) Swift and Java (for mobile app development) JavaScript (for hating my life working on front-end) Data Science (because statistics is too mainstream)  Useful links about me:</description>
     </item>

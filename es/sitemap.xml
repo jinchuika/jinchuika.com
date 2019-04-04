@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jinchuika.com/politica-privacidad/</loc>
+    <lastmod>2019-04-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jinchuika.com/post/3-inclusion-templates-django/</loc>
     <lastmod>2019-03-27T22:54:02-06:00</lastmod>
   </url>
@@ -25,16 +30,6 @@
   <url>
     <loc>https://jinchuika.com/about/</loc>
     <lastmod>2019-01-25T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jinchuika.com/en/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jinchuika.com/about/"
-                />
   </url>
   
   <url>
@@ -81,7 +76,7 @@
   
   <url>
     <loc>https://jinchuika.com/</loc>
-    <lastmod>2019-03-27T22:54:02-06:00</lastmod>
+    <lastmod>2019-04-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

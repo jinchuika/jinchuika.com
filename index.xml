@@ -6,10 +6,21 @@
     <description>Recent content on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
-    <lastBuildDate>Wed, 27 Mar 2019 22:54:02 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 03 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jinchuika.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Politica de Privacidad</title>
+      <link>https://jinchuika.com/politica-privacidad/</link>
+      <pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchuika.com/politica-privacidad/</guid>
+      <description>Fecha efectiva: 03 de abril de 2019
+Jinchuika (&amp;ldquo;nosotros&amp;rdquo;, &amp;ldquo;a nosotros&amp;rdquo;, &amp;ldquo;nuestro&amp;rdquo;) opera el sitio web https://jinchuika.com/ (en adelante, el &amp;ldquo;Servicio&amp;rdquo;).
+Esta página le informa de nuestras políticas en materia de recopilación, uso y divulgación de datos personales cuando utiliza nuestro Servicio y de las opciones de las que dispone en relación con esos datos. Our Privacy Policy for Jinchuika is created with the help of the Free Privacy Policy Generator.</description>
+    </item>
     
     <item>
       <title>Inclusión de templates en Django</title>
