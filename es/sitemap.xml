@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jinchuika.com/post/5-por-que-python/</loc>
+    <lastmod>2019-04-19T22:40:23-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jinchuika.com/politica-privacidad/</loc>
     <lastmod>2019-04-03T00:00:00+00:00</lastmod>
   </url>
@@ -75,8 +80,14 @@
   </url>
   
   <url>
+    <loc>https://jinchuika.com/tags/inteligencia-artificial/</loc>
+    <lastmod>2019-04-19T22:40:23-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jinchuika.com/</loc>
-    <lastmod>2019-04-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-19T22:40:23-06:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -104,7 +115,7 @@
   
   <url>
     <loc>https://jinchuika.com/post/</loc>
-    <lastmod>2019-03-27T22:54:02-06:00</lastmod>
+    <lastmod>2019-04-19T22:40:23-06:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -119,8 +130,14 @@
   </url>
   
   <url>
+    <loc>https://jinchuika.com/tags/programaci%C3%B3n/</loc>
+    <lastmod>2019-04-19T22:40:23-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jinchuika.com/tags/python/</loc>
-    <lastmod>2019-03-27T22:54:02-06:00</lastmod>
+    <lastmod>2019-04-19T22:40:23-06:00</lastmod>
     <priority>0</priority>
   </url>
   

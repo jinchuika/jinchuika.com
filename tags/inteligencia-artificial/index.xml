@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on Jinchuika</title>
-    <link>https://jinchuika.com/tags/python/</link>
-    <description>Recent content in Python on Jinchuika</description>
+    <title>Inteligencia Artificial on Jinchuika</title>
+    <link>https://jinchuika.com/tags/inteligencia-artificial/</link>
+    <description>Recent content in Inteligencia Artificial on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-mx</language>
     <lastBuildDate>Fri, 19 Apr 2019 22:40:23 -0600</lastBuildDate>
     
-	<atom:link href="https://jinchuika.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jinchuika.com/tags/inteligencia-artificial/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <guid>https://jinchuika.com/post/5-por-que-python/</guid>
       <description>Esta pregunta nunca falta en todas las confererncias o clases sobre introducción a la inteligencia artificial. Dado que muchas personas que empiezan en esta área tienen experiencia en otros lenguajes, consideré importante saber por qué vale la pena darle una oportunidad a Python.
 Es muy fácil de aprender y utilizar Cuando hablamos de ciencia de datos, es muy importante comprender los conceptos matemáticos y estadísticos que fundamentan los algoritmos. Recorrer estos temas nos llevará mayor o menor tiempo dependiendo de nuestra experiencia previa con ellos.</description>
-    </item>
-    
-    <item>
-      <title>Inclusión de templates en Django</title>
-      <link>https://jinchuika.com/post/3-inclusion-templates-django/</link>
-      <pubDate>Wed, 27 Mar 2019 22:54:02 -0600</pubDate>
-      
-      <guid>https://jinchuika.com/post/3-inclusion-templates-django/</guid>
-      <description>Este post fue migrado de mi antiguo blog. El código fue modificado para ajustarse a versiones más recientes de Django.
- Hace unos días empecé a sentir que el código en uno de los componentes principales de mi sistema se estaba saliendo de control. Tengo un modelo al que hacen referencia muchos otros, así que hice una página donde se pudiera ver toda la información relacionada a él. De pronto caí en cuenta de que el template estaba creciendo muchísimo más allá de lo que me habría gustado.</description>
     </item>
     
   </channel>
