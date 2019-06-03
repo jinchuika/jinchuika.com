@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Jinchuika</title>
+    <link>https://jinchuika.com/es/tags/</link>
+    <description>Recent content in Tags on Jinchuika</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Luis Carlos Contreras</copyright>
+    <lastBuildDate>Wed, 27 Mar 2019 22:54:02 -0600</lastBuildDate>
+    
+	<atom:link href="https://jinchuika.com/es/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Django</title>
+      <link>https://jinchuika.com/es/tags/django/</link>
+      <pubDate>Wed, 27 Mar 2019 22:54:02 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geoffry Hinton</title>
+      <link>https://jinchuika.com/es/tags/geoffry-hinton/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchuika.com/es/tags/geoffry-hinton/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inteligencia Artificial</title>
+      <link>https://jinchuika.com/es/tags/inteligencia-artificial/</link>
+      <pubDate>Fri, 19 Apr 2019 22:40:23 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/tags/inteligencia-artificial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://jinchuika.com/es/tags/machine-learning/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchuika.com/es/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programación</title>
+      <link>https://jinchuika.com/es/tags/programaci%C3%B3n/</link>
+      <pubDate>Fri, 19 Apr 2019 22:40:23 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/tags/programaci%C3%B3n/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://jinchuika.com/es/tags/python/</link>
+      <pubDate>Fri, 19 Apr 2019 22:40:23 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Yann Lecun</title>
+      <link>https://jinchuika.com/es/tags/yann-lecun/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchuika.com/es/tags/yann-lecun/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

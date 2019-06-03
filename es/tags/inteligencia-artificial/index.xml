@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Inteligencia Artificial on Jinchuika</title>
+    <link>https://jinchuika.com/es/tags/inteligencia-artificial/</link>
+    <description>Recent content in Inteligencia Artificial on Jinchuika</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Luis Carlos Contreras</copyright>
+    <lastBuildDate>Fri, 19 Apr 2019 22:40:23 -0600</lastBuildDate>
+    
+	<atom:link href="https://jinchuika.com/es/tags/inteligencia-artificial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Por qué usar Python para desarrollar inteligencia artificial</title>
+      <link>https://jinchuika.com/es/post/5-por-que-python/</link>
+      <pubDate>Fri, 19 Apr 2019 22:40:23 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/post/5-por-que-python/</guid>
+      <description>Esta pregunta nunca falta en todas las confererncias o clases sobre introducción a la inteligencia artificial. Dado que muchas personas que empiezan en esta área tienen experiencia en otros lenguajes, consideré importante saber por qué vale la pena darle una oportunidad a Python.
+Es muy fácil de aprender y utilizar Cuando hablamos de ciencia de datos, es muy importante comprender los conceptos matemáticos y estadísticos que fundamentan los algoritmos. Recorrer estos temas nos llevará mayor o menor tiempo dependiendo de nuestra experiencia previa con ellos.</description>
+    </item>
+    
+  </channel>
+</rss>

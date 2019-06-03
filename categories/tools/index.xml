@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on Jinchuika</title>
+    <link>https://jinchuika.com/categories/tools/</link>
+    <description>Recent content in Tools on Jinchuika</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Luis Carlos Contreras</copyright>
+    <lastBuildDate>Fri, 31 May 2019 07:00:11 -0600</lastBuildDate>
+    
+	<atom:link href="https://jinchuika.com/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is the new Visual Studio Code feature and how to use it</title>
+      <link>https://jinchuika.com/post/2-vs-code-remote/</link>
+      <pubDate>Fri, 31 May 2019 07:00:11 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/post/2-vs-code-remote/</guid>
+      <description>Visual Studio Code just launched one of the most interesting features ever in a code editor: the option to install it on a server and access all your files remotely, using all your plugins and tools from your normal editor. I&amp;rsquo;ve already used it to edit some configuration and environment files on a couple servers and the experiences is awesome. In this post, I&amp;rsquo;ll explain how to install it using SSH and why it is convenient.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Jinchuika</title>
+    <link>https://jinchuika.com/es/post/</link>
+    <description>Recent content in Posts on Jinchuika</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Luis Carlos Contreras</copyright>
+    <lastBuildDate>Fri, 19 Apr 2019 22:40:23 -0600</lastBuildDate>
+    
+	<atom:link href="https://jinchuika.com/es/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Por qué usar Python para desarrollar inteligencia artificial</title>
+      <link>https://jinchuika.com/es/post/5-por-que-python/</link>
+      <pubDate>Fri, 19 Apr 2019 22:40:23 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/post/5-por-que-python/</guid>
+      <description>Esta pregunta nunca falta en todas las confererncias o clases sobre introducción a la inteligencia artificial. Dado que muchas personas que empiezan en esta área tienen experiencia en otros lenguajes, consideré importante saber por qué vale la pena darle una oportunidad a Python.
+Es muy fácil de aprender y utilizar Cuando hablamos de ciencia de datos, es muy importante comprender los conceptos matemáticos y estadísticos que fundamentan los algoritmos. Recorrer estos temas nos llevará mayor o menor tiempo dependiendo de nuestra experiencia previa con ellos.</description>
+    </item>
+    
+    <item>
+      <title>Inclusión de templates en Django</title>
+      <link>https://jinchuika.com/es/post/3-inclusion-templates-django/</link>
+      <pubDate>Wed, 27 Mar 2019 22:54:02 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/post/3-inclusion-templates-django/</guid>
+      <description>Este post fue migrado de mi antiguo blog. El código fue modificado para ajustarse a versiones más recientes de Django.
+ Hace unos días empecé a sentir que el código en uno de los componentes principales de mi sistema se estaba saliendo de control. Tengo un modelo al que hacen referencia muchos otros, así que hice una página donde se pudiera ver toda la información relacionada a él. De pronto caí en cuenta de que el template estaba creciendo muchísimo más allá de lo que me habría gustado.</description>
+    </item>
+    
+    <item>
+      <title>Geoff Hinton, Yann LeCun y Yoshua Bengio ganan el premio &#39;Alan Turing&#39;</title>
+      <link>https://jinchuika.com/es/post/2-turing/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchuika.com/es/post/2-turing/</guid>
+      <description>Yann LeCun, Geoff Hinton y Yoshua Bengio acaban de ganar el premio &amp;lsquo;Alan Turing&amp;rsquo;, también conocido como el premio Nobel de la computación. Lo más sorprendente es que ninguno de ellos la ganara antes, pues los avances obtenidos por todos son increíbles. Para tener una idea de lo badass que son estos sujetos, veamos un poco de su historia.
+Geoff Hinton El profesor universitario en la NYU, actualmente de 71 años, fue pionero en el desarrollo de las redes neuronales.</description>
+    </item>
+    
+    <item>
+      <title>Estructuras de datos simples en Python (Parte 0)</title>
+      <link>https://jinchuika.com/es/post/estructuras_python_1/</link>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchuika.com/es/post/estructuras_python_1/</guid>
+      <description>En esta serie de posts introduciremos conceptos básicos para almacenar y manipular datos utilizando Python y distintas librerías. El enfoque principal es poder llegar a manipular datos para crear un algoritmo inteligente.
+ Los datos a utilizar en inteligencia artificial se representan en matrices. En el siguiente ejemplo, tenemos una matriz de 4x3: 4 filas por 3 columnas.
+   Encabezado1 Encabezado2 Encabezado3     Dato1-1 Dato1-2 Dato1-3   Dato2-1 Dato2-2 Dato2-3   Dato3-1 Dato3-2 Dato3-3   Dato4-1 Dato4-2 Dato4-3    En este caso, la matriz es una estructura de 2 dimensiones, pues tiene filas y columnas.</description>
+    </item>
+    
+    <item>
+      <title>¡Hola mundo!</title>
+      <link>https://jinchuika.com/es/post/hello_world/</link>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jinchuika.com/es/post/hello_world/</guid>
+      <description>¡Hola! Este es mi (más reciente intento de crear un) blog. Estaré publicando cosas sobre programación, tecnología, inteligencia artificial y matemática próximamente.</description>
+    </item>
+    
+  </channel>
+</rss>
