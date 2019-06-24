@@ -6,10 +6,20 @@
     <description>Recent content on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Luis Carlos Contreras</copyright>
-    <lastBuildDate>Fri, 19 Apr 2019 22:40:23 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2019 23:59:16 -0600</lastBuildDate>
     
 	<atom:link href="https://jinchuika.com/es/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cómo descargué todos los datos de las elecciones de mi país usando Python (y cómo puedes hacerlo tú)</title>
+      <link>https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/</link>
+      <pubDate>Sat, 22 Jun 2019 23:59:16 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/</guid>
+      <description>Resumen por si no quieres leer todo y únicamente quieres ver cómo lo hice:
+ Link al repositorio con mi código, donde adjunto una guía de instalación si tú quieres hacer lo mismo: Repo en GitHub. Un archivo JSON con todos los datos, por si tú quieres realizar tu propio análisis: Descargar. Un archivo en CSV con los resultados de las elecciones presidenciables en cada una de las 21099 mesas electorales: Descargar.</description>
+    </item>
     
     <item>
       <title>Por qué usar Python para desarrollar inteligencia artificial</title>

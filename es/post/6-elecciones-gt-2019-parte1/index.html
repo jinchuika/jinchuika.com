@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+    <script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jinchuika.com"
+    },
+    "articleSection" : "post",
+    "name" : "Cómo descargué todos los datos de las elecciones de mi país usando Python (y cómo puedes hacerlo tú)",
+    "headline" : "Cómo descargué todos los datos de las elecciones de mi país usando Python (y cómo puedes hacerlo tú)",
+    "description" : "Teniendo en cuenta que la página del Tribunal Supremo Electoral (TSE) no tenía ninguna medida de seguridad y que no confío mucho que digamos en el TSE, decidí descargar todos los datos para realizar mi propio análisis. En este post te explico rápidamente cómo lo hice utilizando Python.",
+    "inLanguage" : "es",
+    "author": {
+        "@type": "Person",
+        "name": "Luis Carlos Contreras"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Luis Carlos Contreras",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://jinchuika.com/img/favicon.ico",
+            "width": "80",
+            "height": "80"
+        }
+    },
+    "creator" : "Luis Carlos Contreras",
+    "copyrightHolder" : "Luis Carlos Contreras",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-06-22 23:59:16 -0600 CST",
+    "dateModified" : "2019-06-22 23:59:16 -0600 CST",
+    "url" : "https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/",
+    "wordCount" : "1573",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/cover.png",
+        "width": 800,
+        "height": 600
+    },
+    
+    "keywords" : [
+    
+    ]
+}
+</script>
+
+    <title>Cómo descargué todos los datos de las elecciones de mi país usando Python (y cómo puedes hacerlo tú) :: Jinchuika — Blog de programación</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Resumen por si no quieres leer todo y únicamente quieres ver cómo lo hice:
+ Link al repositorio con mi código, donde adjunto una guía de instalación si tú quieres hacer lo mismo: Repo en GitHub. Un archivo JSON con todos los datos, por si tú quieres realizar tu propio análisis: Descargar. Un archivo en CSV con los resultados de las elecciones presidenciables en cada una de las 21099 mesas electorales: Descargar."/>
+<meta name="keywords" content="blog,tecnología,programación,inteligencia artificial,machine learning"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/" />
+
+
+<link rel="stylesheet" href="https://jinchuika.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://jinchuika.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://jinchuika.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://jinchuika.com/img/favicon.ico">
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Cómo descargué todos los datos de las elecciones de mi país usando Python (y cómo puedes hacerlo tú) :: Jinchuika — Blog de programación" />
+<meta name="twitter:description" content="Resumen por si no quieres leer todo y únicamente quieres ver cómo lo hice:
+ Link al repositorio con mi código, donde adjunto una guía de instalación si tú quieres hacer lo mismo: Repo en GitHub. Un archivo JSON con todos los datos, por si tú quieres realizar tu propio análisis: Descargar. Un archivo en CSV con los resultados de las elecciones presidenciables en cada una de las 21099 mesas electorales: Descargar." />
+<meta name="twitter:site" content="https://jinchuika.com" />
+<meta name="twitter:creator" content="Luis Carlos Contreras" />
+<meta name="twitter:image" content="https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/cover.png">
+
+
+<meta property="og:locale" content="es" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Cómo descargué todos los datos de las elecciones de mi país usando Python (y cómo puedes hacerlo tú) :: Jinchuika — Blog de programación">
+<meta property="og:description" content="Resumen por si no quieres leer todo y únicamente quieres ver cómo lo hice:
+ Link al repositorio con mi código, donde adjunto una guía de instalación si tú quieres hacer lo mismo: Repo en GitHub. Un archivo JSON con todos los datos, por si tú quieres realizar tu propio análisis: Descargar. Un archivo en CSV con los resultados de las elecciones presidenciables en cada una de las 21099 mesas electorales: Descargar." />
+<meta property="og:url" content="https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/" />
+<meta property="og:site_name" content="Cómo descargué todos los datos de las elecciones de mi país usando Python (y cómo puedes hacerlo tú)" />
+<meta property="og:image" content="https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/cover.png">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-06-22 23:59:16 -0600 CST" />
+
+
+
+
+
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({
+	google_ad_client: "ca-pub-7910880084570598",
+	enable_page_level_ads: true
+});
+</script>
+</head>
+<body class="dark-theme">
+<div class="container">
+  <header class="header">
+  <span class="header__inner">
+    <a href="https://jinchuika.com/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Jinchuika</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="about">Acerca de</a></li>
+        
+      
+        
+          <li><a href="https://jinchuika.com/en">English</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="about">Acerca de</a></li>
+      
+    
+      
+        <li><a href="https://jinchuika.com/en">English</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+  <div class="content">
+    
+  <div class="post">
+    <h2 class="post-title"><a href="https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/">Cómo descargué todos los datos de las elecciones de mi país usando Python (y cómo puedes hacerlo tú)</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-06-22
+        </span>
+      
+      <span class="post-author">— Escrito por Luis Carlos Contreras</span>
+      
+        <span class="post-read-time">— 8 minutos</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/cover.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+
+<blockquote>
+<p><em>Resumen por si no quieres leer todo y únicamente quieres ver cómo lo hice:</em></p>
+
+<ul>
+<li>Link al repositorio con mi código, donde adjunto una guía de instalación si tú quieres hacer lo mismo: <a href="https://github.com/jinchuika/tse-scraper"><strong>Repo en GitHub</strong></a>.</li>
+<li>Un archivo JSON con todos los datos, por si tú quieres realizar tu propio análisis: <a href="resultados.zip"><strong>Descargar</strong></a>.</li>
+<li>Un archivo en CSV con los resultados de las elecciones presidenciables en cada una de las 21099 mesas electorales: <a href="resultados_csv.zip"><strong>Descargar</strong></a>.</li>
+</ul>
+</blockquote>
+
+<p>El pasado 16 de junio se <em>celebraron</em> las <a href="https://es.wikipedia.org/wiki/Elecciones_generales_de_Guatemala_de_2019">elecciones generales en mi país</a>. En cuanto empezó el conteo de votos <a href="https://twitter.com/i/moments/1142781711228579840">expresé mi molestia en twitter</a> sobre la pésima calidad de la página creada por el Tribunal Supremo Electoral (TSE) para consultar los resultados. Teniendo en cuenta que su página no tenía ninguna medida de seguridad y que no confío mucho que digamos en el TSE, decidí descargar todos los datos para realizar mi propio análisis. En este post te explico rápidamente cómo lo hice.</p>
+
+<p>Empecemos por analizar cómo funciona <a href="https://resultados2019.tse.org.gt">la página de resultados</a>. Una simple inspección en la página en la sección &ldquo;Red&rdquo; te mostrará que está desarrollada en PHP. Cada vez que realizas una consulta para ver un tipo de resultado se envía una petición al backend con los parámetros de la solicitud. Estos parámetros incluyen:</p>
+
+<ul>
+<li><code>d</code>: <strong>Departamento</strong>: el código del departamento (estado o región en otros países) a consultar. Como se muestra en la imagen, el departamento número <code>0</code> indica que se debe ignorar este filtro.</li>
+<li><code>m</code>: <strong>Municipio</strong>: el código del municipio (ciudad en otros países). El filtro utiliza el <code>0</code> en la misma forma que el departamento.</li>
+<li><code>te</code>: <strong>Tipo de elección</strong>: el tipo de elección con el código <code>1</code> indica que es la elección para presidente, el <code>2</code> la de diputados (congresistas) por listado nacional, el <code>3</code> diputados departamentales, el <code>4</code> la de alcaldes municipales y el <code>5</code> la de diputados al Parlamento Centroamericano. (Si te causa alguna inquietud que en Guatemala se elijan tantos cargos públicos al mismo tiempo, déjame compartir que a mí también).</li>
+<li><code>vista</code>: <strong>Tipo de vista</strong>: existen dos tipos de consultas que se pueden realizar. La primera es de resultados (<code>RESULTADO</code>), donde puedes ver el resumen de la cantidad de votos que obtuvo cada candidato. La segunda (<code>MESA</code>) es mucho más interesante. Permite consultar el detalle de cada mesa electoral ingresando el identificador de ésta.</li>
+<li><code>token</code>: Un token de <em>seguridad</em> que permite garantizar el origen de la solicitud. Tendré mucho más de qué hablar sobre este token dentro de poco.</li>
+</ul>
+
+
+  <img src="1.png"  alt="Solicitud realizada a la página de consulta de TSE"  class="center"  style="border-radius: 8px;"  />
+
+
+
+<p>El TSE tuvo a bien ordenar los resultados en formato JSON sin ningún tipo de encriptación (si lo hicieron por simplicidad, por contribuir a los datos abiertos o por falta de capacidad, lo dejo a tu discreción). Revisé la estructura de la respuesta del servidor para una solicitud al tipo de vista <code>MESA</code> y encontré que era muy fácil de entender:</p>
+
+<ul>
+<li>Existe un listado que contiene los resultados de cada tipo de elección.</li>
+<li>Debido a que hay tipos de elecciones con una cantidad variable de candidatos (por ejemplo, un partido político pudo haber postulado a alguien para presidente pero no para alcalde de una ciudad específica), cada tipo de elección tiene un listado de registros con los votos estructurados como muestra la imagen próxima.</li>
+<li>Cada tipo de elección contiene un resumen de los datos de su mesa electoral para ese tipo en específico. Este resumen incluye datos como la cantidad de votos válidos, nulos e inválidos, un link a una foto del acta sobre los resultados de la mesa, la cantidad de papeletas disponibles y&hellip; <strong>¡¿un campo que indica si los datos del conteo de votos cuadran o no?!</strong>.</li>
+</ul>
+
+
+  <img src="2.png"  alt="Estructura de los votos en la página del TSE"  class="center"  style="border-radius: 8px;"  />
+
+
+
+<p>Me llamó mucho la atención que existiera este campo. ¿Por qué habríamos de suponer que los votos no cuadren? En ese momento supe que tenía que descargar todos los datos y comparar yo mismo que fueran reales. Imaginé que sería fácil hacer algo así utilizando Python, pero seguramente el token de seguridad estaría ligado a una sesión específica o tendría un tiempo de expiración muy corto. En cualquier caso, nada costaría probar para saber qué tipo de seguridad utiliza el token. Utilicé el paquete de Python <code>requests</code> para hacer solicitudes de forma fácil a cualquier URL.</p>
+
+
+  <img src="3.png"  alt="Solicitud a la página del TSE usando Python"  class="center"  style="border-radius: 8px;"  />
+
+
+
+<p>Y ¡vaya sorpresa! El token no valida prácticamente nada. Esperé un tiempo para volver a utilizarlo y seguía funcionando. Incluso probé el mismo token en otra máquina y aún tenía éxito. Esto da luz verde para generar un script que descargue y organice todos los datos.</p>
+
+<h3 id="creación-del-script-de-python">Creación del script de Python</h3>
+
+<p>Empecé por utilizar un ambiente virtual de Python manejado por Pipenv. Si no tienes experiencia en ello, su página web es una muy buena referencia del uso. No necesitaremos ninguna otra dependencia externa para descargar los datos.</p>
+
+<p>Como mostré anteriormente, realizar una solicitud es bastante simple:</p>
+
+<pre><code class="language-python"># importar el paquete
+import requests
+# crear el objeto de la solicitud
+r = requests.get(url)
+# convertir el json de la respuesta en una estructura de Python como listas o diccionarios
+r.json()
+</code></pre>
+
+<p>Utilizando este código, es bastante sencillo crear una función que me permita obtener los datos de una mesa específica:</p>
+
+<pre><code class="language-python">url = 'https://resultados2019.tse.org.gt/201901/api.php'
+token = ''
+
+def query_api(num):
+    params = {'token': token, 'mesa': num, 'vista': 'MESA'}
+    query_url = f'{url}?token={params[&quot;token&quot;]}&amp;mesa={params[&quot;mesa&quot;]}&amp;vista={params[&quot;vista&quot;]}'
+    r = requests.get(url=query_url, data=params)
+    data = r.json()
+</code></pre>
+
+<p>Algo que he aprendido tras varios años de hacer web scraping, es que no puedes confiar en que una solicitud larga se mantenga abierta por mucho tiempo. Debes guardar tu trabajo seguido por si hay algún problema con el servidor a donde te conectes. Por esta razón, voy a generar un archivo único por cada mesa. Si el proceso falla en la mesa número 15321, al menos tendré el resto almacenado. Para ello, vamos a exportar los datos con:</p>
+
+<pre><code class="language-python">import json
+
+with open(f'carpeta_data/{num}.json', 'w', encoding='utf-8') as outfile:
+    json.dump(data, outfile, ensure_ascii=False, indent=2)
+</code></pre>
+
+<p>Podríamos dejarlo hasta ahí, pero en serio no confío mucho que digamos en mi gobierno, por lo que decidí que también sería bueno descargar las imágenes contenidas en la URL de cada registro. Para ello, vamos a utilizar:</p>
+
+<pre><code class="language-python">import shutil
+# recorremos cada uno de los tipos de elección en esa mesa
+for i, te in enumerate(data['TE']):
+    folder = f'carpeta_imagenes/{i}'
+    # obtener el tipo de extensión de la imagen
+    extension = te['IMGSRC'].split('.')[-1]
+    # consultar la URL de la imagen
+    response = requests.get(te['IMGSRC'], stream=True)
+    with open(f'carpeta_imagenes/{i}/{num}.{extension}', 'wb') as out_file:
+        shutil.copyfileobj(response.raw, out_file)
+    del response
+</code></pre>
+
+<p>Por lo tanto, el método final queda de la siguiente manera:</p>
+
+<pre><code class="language-python">url = 'https://resultados2019.tse.org.gt/201901/api.php'
+
+# obtén tu propio token desde la página del TSE
+token = ''
+# la carpeta donde desees guardar los datos
+output_folder_raw = ''
+# la carpeta donde quieras guardar las imágenes
+# dentro de esta carpeta debes generar otras 5 llamadas 0, 1, 2, 3, y 4
+output_folder_images = ''
+
+
+def query_api(num):
+    params = {'token': token, 'mesa': num, 'vista': 'MESA'}
+    query_url = f'{url}?token={params[&quot;token&quot;]}&amp;mesa={params[&quot;mesa&quot;]}&amp;vista={params[&quot;vista&quot;]}'
+    print(f'Consulting... : {num}')
+    r = requests.get(url=query_url, data=params)
+    data = r.json()
+    with open(f'{output_folder_raw}/{num}.json', 'w', encoding='utf-8') as outfile:
+        json.dump(data, outfile, ensure_ascii=False, indent=2)
+    try:
+        for i, te in enumerate(data['TE']):
+            folder = f'{output_folder_images}/{i}'
+            extension = te['IMGSRC'].split('.')[-1]
+            # puse esta validacion para consultar unicamente si el archivo no existe
+            if f'{num}.{extension}' not in os.listdir(folder):
+                response = requests.get(te['IMGSRC'], stream=True)
+                with open(f'{output_folder_images}/{i}/{num}.{extension}', 'wb') as out_file:
+                    shutil.copyfileobj(response.raw, out_file)
+                del response
+    except KeyError:
+        pass
+    print(f'Done with {num}')
+</code></pre>
+
+<p>Hasta aquí todo bastante bien, podemos ejecutar esta función dentro de un ciclo para realizar la consulta de todas las mesas. Sin embargo, este proceso tardaría mucho tiempo puesto que se debería esperar a que cada mesa descargue sus datos para empezar con la siguiente. Para evitar este inconveniente utilizaremos la siempre útil ejecución en paralelo. Ya que explicar cómo funciona este método es algo que supera el alcance de este post, simplemente te explicaré cómo funcionan las partes clave:</p>
+
+<pre><code class="language-python"># la función que contiene la secuencia de órdenes asíncronas
+
+
+async def main():
+    starting = 1
+    ending = 21100
+    # aquí le decimos que queremos utilizar 8 hilos al mismo tiempo
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+        # obtenemos el ciclo de eventos de nuestro gestor asíncrono
+        loop = asyncio.get_event_loop()
+        # parámetros para la función a ejecutar en el ciclo de eventos
+        futures = [
+            loop.run_in_executor(
+                executor,
+                query_api,
+                i
+            )
+            for i in range(starting, ending)
+        ]
+        # ejecutamos la función en un ciclo sin esperar al resultado de cada repetición para continuar
+        for response in await asyncio.gather(*futures):
+            pass
+
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
+</code></pre>
+
+<p>¡Y eso es todo! Ahora podemos ejecutar nuestro archivo desde la línea de comandos y esperar&hellip; Esperar un buen rato. Curiosamente, de vez en cuando alguna de las solicitudes puede llegar a ser rechazada, por lo que tendrás que esperar a que termine y ejecutar de nuevo el comando. Encontré una solución simple a no tener que hacer solicitudes dos veces, que puedes consultar en <a href="https://github.com/jinchuika/tse-scraper/blob/master/scraper.py">el archivo completo en GitHub</a>. Esta solución utiliza el paquete NumPy, por lo quizas quieras revisar la descripción del repositorio antes de ejecutarlo.</p>
+
+<h2 id="resultados-finales">Resultados finales</h2>
+
+
+  <img src="4.png"  alt="Resultados finales"  class="center"  style="border-radius: 8px;"  />
+
+
+
+<p>Después de correr el script con 1500 registros me di cuenta de que mi humilde computadora no sería suficiente para soportar la carga de trabajo, por lo que decidí adquirir un servidor básico en la nube donde pudiera ejecutarlo con confianza. Después de unas dos horas de trabajo, los resultados fueron:</p>
+
+<ul>
+<li>41 GB de fotos descargadas</li>
+<li>105037 fotos de actas descargadas</li>
+<li>247 MB de archivos JSON</li>
+<li>21099 archivos JSON con los resultados de las papeletas</li>
+</ul>
+
+<p>Estoy trabajando en el análisis de datos utilizando Pandas y Bokeh para crear una visualización útil sobre los datos. Así que no olvides seguire en <a href="https://twitter.com/chui_k">Twitter</a> para saber cuando esté lista.</p>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Leer otros post</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+          
+            <span class="button next">
+              <a href="https://jinchuika.com/es/post/5-por-que-python/">
+                <span class="button__text">Por qué usar Python para desarrollar inteligencia artificial</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+    
+
+
+
+
+
+<div id="sharing">
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f6-elecciones-gt-2019-parte1%2f" target="_blank" rel="noopener" aria-label="Facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=C%c3%b3mo%20descargu%c3%a9%20todos%20los%20datos%20de%20las%20elecciones%20de%20mi%20pa%c3%ads%20usando%20Python%20%28y%20c%c3%b3mo%20puedes%20hacerlo%20t%c3%ba%29&amp;url=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f6-elecciones-gt-2019-parte1%2f" target="_blank" rel="noopener" aria-label="Twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f6-elecciones-gt-2019-parte1%2f&amp;title=C%c3%b3mo%20descargu%c3%a9%20todos%20los%20datos%20de%20las%20elecciones%20de%20mi%20pa%c3%ads%20usando%20Python%20%28y%20c%c3%b3mo%20puedes%20hacerlo%20t%c3%ba%29&amp;summary=Teniendo%20en%20cuenta%20que%20la%20p%c3%a1gina%20del%20Tribunal%20Supremo%20Electoral%20%28TSE%29%20no%20ten%c3%ada%20ninguna%20medida%20de%20seguridad%20y%20que%20no%20conf%c3%ado%20mucho%20que%20digamos%20en%20el%20TSE%2c%20decid%c3%ad%20descargar%20todos%20los%20datos%20para%20realizar%20mi%20propio%20an%c3%a1lisis.%20En%20este%20post%20te%20explico%20r%c3%a1pidamente%20c%c3%b3mo%20lo%20hice%20utilizando%20Python.&amp;source=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f6-elecciones-gt-2019-parte1%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f6-elecciones-gt-2019-parte1%2f&amp;resubmit=true&amp;title=C%c3%b3mo%20descargu%c3%a9%20todos%20los%20datos%20de%20las%20elecciones%20de%20mi%20pa%c3%ads%20usando%20Python%20%28y%20c%c3%b3mo%20puedes%20hacerlo%20t%c3%ba%29." target="_blank" rel="noopener" aria-label="Reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg></div>Reddit</div>
+</a>
+
+
+</div>
+
+
+
+    
+
+    </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Luis Carlos Contreras</div>
+    
+  </div>
+</footer>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-60599533-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+<script src="https://jinchuika.com/assets/main.js"></script>
+<script src="https://jinchuika.com/assets/prism.js"></script>
+
+  
+</div>
+
+</body>
+</html>
