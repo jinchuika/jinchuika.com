@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Luis Carlos Contreras</copyright>
-    <lastBuildDate>Sat, 22 Jun 2019 23:59:16 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 25 Jun 2019 19:27:40 -0600</lastBuildDate>
     
 	<atom:link href="https://jinchuika.com/es/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cómo procesar los datos de las elecciones generales utilizando Python</title>
+      <link>https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/</link>
+      <pubDate>Tue, 25 Jun 2019 19:27:40 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/</guid>
+      <description>Resumen por si no quieres leer todo y únicamente quieres los resultados:
+ Link al repositorio con mi código: Repo en GitHub. Los resultados de las elecciones presidenciables: Descargar datos de candidatos a presidente. Todos los archivos en CSV de las elecciones de diputados por listado nacional: Descargar los datos de diputados por listado nacional. Todos los archivos en CSV de las elecciones de diputados por distrito: Descargar los datos de diputados por distrito.</description>
+    </item>
     
     <item>
       <title>Cómo descargué todos los datos de las elecciones de mi país usando Python (y cómo puedes hacerlo tú)</title>

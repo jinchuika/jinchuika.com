@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+    <script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jinchuika.com"
+    },
+    "articleSection" : "post",
+    "name" : "Cómo procesar los datos de las elecciones generales utilizando Python",
+    "headline" : "Cómo procesar los datos de las elecciones generales utilizando Python",
+    "description" : "En mi post anterior explicaba cómo descargué toda la información sobre las elecciones generales en mi país. Si bien estos datos son útiles para tener un respaldo de la información, deben ser procesados antes de empezar a realizar cualquier análisis con ellos. En este post te explico cómo procesé los resultados para generar archivos fáciles de leer y utilizar en cualquier análisis de datos.",
+    "inLanguage" : "es",
+    "author": {
+        "@type": "Person",
+        "name": "Luis Carlos Contreras"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Luis Carlos Contreras",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://jinchuika.com/img/favicon.ico",
+            "width": "80",
+            "height": "80"
+        }
+    },
+    "creator" : "Luis Carlos Contreras",
+    "copyrightHolder" : "Luis Carlos Contreras",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-06-25 19:27:40 -0600 CST",
+    "dateModified" : "2019-06-25 19:27:40 -0600 CST",
+    "url" : "https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/",
+    "wordCount" : "1451",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/cover.png",
+        "width": 800,
+        "height": 600
+    },
+    
+    "keywords" : [
+    
+    ]
+}
+</script>
+
+    <title>Cómo procesar los datos de las elecciones generales utilizando Python :: Jinchuika — Blog de programación</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Resumen por si no quieres leer todo y únicamente quieres los resultados:
+ Link al repositorio con mi código: Repo en GitHub. Los resultados de las elecciones presidenciables: Descargar datos de candidatos a presidente. Todos los archivos en CSV de las elecciones de diputados por listado nacional: Descargar los datos de diputados por listado nacional. Todos los archivos en CSV de las elecciones de diputados por distrito: Descargar los datos de diputados por distrito."/>
+<meta name="keywords" content="blog,tecnología,programación,inteligencia artificial,machine learning"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/" />
+
+
+<link rel="stylesheet" href="https://jinchuika.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://jinchuika.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://jinchuika.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://jinchuika.com/img/favicon.ico">
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Cómo procesar los datos de las elecciones generales utilizando Python :: Jinchuika — Blog de programación" />
+<meta name="twitter:description" content="Resumen por si no quieres leer todo y únicamente quieres los resultados:
+ Link al repositorio con mi código: Repo en GitHub. Los resultados de las elecciones presidenciables: Descargar datos de candidatos a presidente. Todos los archivos en CSV de las elecciones de diputados por listado nacional: Descargar los datos de diputados por listado nacional. Todos los archivos en CSV de las elecciones de diputados por distrito: Descargar los datos de diputados por distrito." />
+<meta name="twitter:site" content="https://jinchuika.com" />
+<meta name="twitter:creator" content="Luis Carlos Contreras" />
+<meta name="twitter:image" content="https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/cover.png">
+
+
+<meta property="og:locale" content="es" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Cómo procesar los datos de las elecciones generales utilizando Python :: Jinchuika — Blog de programación">
+<meta property="og:description" content="Resumen por si no quieres leer todo y únicamente quieres los resultados:
+ Link al repositorio con mi código: Repo en GitHub. Los resultados de las elecciones presidenciables: Descargar datos de candidatos a presidente. Todos los archivos en CSV de las elecciones de diputados por listado nacional: Descargar los datos de diputados por listado nacional. Todos los archivos en CSV de las elecciones de diputados por distrito: Descargar los datos de diputados por distrito." />
+<meta property="og:url" content="https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/" />
+<meta property="og:site_name" content="Cómo procesar los datos de las elecciones generales utilizando Python" />
+<meta property="og:image" content="https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/cover.png">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-06-25 19:27:40 -0600 CST" />
+
+
+
+
+
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({
+	google_ad_client: "ca-pub-7910880084570598",
+	enable_page_level_ads: true
+});
+</script>
+</head>
+<body class="dark-theme">
+<div class="container">
+  <header class="header">
+  <span class="header__inner">
+    <a href="https://jinchuika.com/es" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Jinchuika</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="about">Acerca de</a></li>
+        
+      
+        
+          <li><a href="https://jinchuika.com/en">English</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="about">Acerca de</a></li>
+      
+    
+      
+        <li><a href="https://jinchuika.com/en">English</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+  <div class="content">
+    
+  <div class="post">
+    <h2 class="post-title"><a href="https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/">Cómo procesar los datos de las elecciones generales utilizando Python</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-06-25
+        </span>
+      
+      <span class="post-author">— Escrito por Luis Carlos Contreras</span>
+      
+        <span class="post-read-time">— 7 minutos</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/cover.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <blockquote>
+<p><em>Resumen por si no quieres leer todo y únicamente quieres los resultados:</em></p>
+
+<ul>
+<li>Link al repositorio con mi código: <a href="https://github.com/jinchuika/tse-scraper/blob/master/data-processing/main_processor.ipynb"><strong>Repo en GitHub</strong></a>.</li>
+<li>Los resultados de las elecciones presidenciables: <a href="resultados_csv.zip"><strong>Descargar datos de candidatos a presidente</strong></a>.</li>
+<li>Todos los archivos en CSV de las elecciones de diputados por listado nacional: <a href="diputados_nacional.zip"><strong>Descargar los datos de diputados por listado nacional</strong></a>.</li>
+<li>Todos los archivos en CSV de las elecciones de diputados por distrito: <a href="diputados.zip"><strong>Descargar los datos de diputados por distrito</strong></a>.</li>
+<li>Todos los archivos en CSV de las elecciones de alcaldes municipales: <a href="municipios.zip"><strong>Descargar los datos de municipalidades</strong></a>.</li>
+<li>El listado de los códigos de los municipios y departamentos: <a href="lista_municipios.csv"><strong>Descargar códigos</strong></a>.</li>
+</ul>
+</blockquote>
+
+<p>En <a href="https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/">mi post anterior</a> explicaba cómo descargué toda la información sobre las elecciones generales en mi país. Si bien estos datos son útiles para tener un respaldo de la información, deben ser procesados antes de empezar a realizar cualquier análisis con ellos. En este post te explico cómo procesé los resultados para generar archivos fáciles de leer y utilizar en cualquier análisis de datos.</p>
+
+<p>Recordemos dónde nos quedamos después de descargar la información: tenemos una carpeta (que identificaré como <code>../output/raw</code>) con 21099 archivos JSON, cada uno conteniendo los resultados de los cinco tipos de elección en una mesa electoral.</p>
+
+<p>Empecemos por definir qué herramientas vamos a utilizar para esta tarea:</p>
+
+<ul>
+<li>Lenguaje de programación: <strong>Python</strong>, pues es bastante eficiente para el manejo de ciencia de datos [y es el lenguaje que más domino  ¯\<em>(ツ)</em>/¯ ].</li>
+<li>Entorno de desarrollo: <strong>Jupyter Notebook</strong>, ya que puedo ejecutarlo en el servidor y acceder a él por medio de mi navegador. Debido a que tuve que descargar todos los datos en un servidor remoto (en el extranjero, por si acaso), es la herramienta idónea para esta tarea.</li>
+<li>Librerías:
+
+<ul>
+<li><strong>pandas</strong>, la excelente librería para el manejo de estructuras y análisis de datos.</li>
+<li><strong>os</strong>, el paquete para manejor de archivos incluido en la librería estándar de Python.</li>
+<li><strong>json</strong>, otro excelente paquete de la librería estándar de Python que permite manipular archivos JSON y convertirlos en estructuras de datos en memoria.</li>
+</ul></li>
+</ul>
+
+<p>Mi primera idea es dejar de tener miles de archivos y convertirlos en uno solo que sea más fácil de manipular. El primer paso es encontrar una forma fácil de listar los arcihvos que debemos convertir. Para ello vamos a usar la función <code>os.listdir()</code>, esto creará una lista con el nombre de todos los archivos contenidos en una carpeta:</p>
+
+<pre><code class="language-python">import os
+print(os.listdir('../output/raw'))
+# ['5556.json', '9916.json', '2503.json', '9361.json', '2312.json',...
+</code></pre>
+
+<p>Ya que tenemos un lista, un simple ciclo será suficiente para ejecutar un procedimiento determinado con cada archivo. Vamos cómo se hace eso:</p>
+
+<pre><code class="language-python"># importar el paquete para manipular los archivos en el sistema
+import os
+carpeta_entrada = '../output/raw'
+# esta lista contendrá todos los registros de las mesas
+all_data = []
+for file_name in os.listdir(carpeta_entrada):
+    # leemos el archivo y cargamos su contenido a la variable f
+    with open(f'{carpeta_entrada}/{file_name}', 'r') as f:
+        # convertimos el contenido del archivo json en una estructura de python
+        # después, agregamos ese contenido a la lista `all_data`
+        all_data.append(json.load(f))
+</code></pre>
+
+<p>¡Y ya está! Ahora nuestra variable <code>all_data</code> contiene todos los registros JSON en una sola estructura. Lo único que hace falta es exportarla a un solo archivo.</p>
+
+<pre><code class="language-python"># crear un archivo unificado que contenga los datos
+carpeta_salida = '../output/final/resultados.json'
+with open(carpeta_salida, 'w') as f:
+    json.dump(all_data, f, ensure_ascii=False)
+</code></pre>
+
+<p>Hasta aquí todo bien, tenemos un único archivo JSON que podemos utilizar para analizar los datos&hellip; Pero honestamente, será difícil estar descifrando la estructura de los datos cada vez que querramos utilizarlos. Así que mejor vamos a convertir los resultados en un archivo CSV, algo que cualquier persona pueda abrir en Excel.</p>
+
+<pre><code class="language-python"># Crear datos de elección para presidente
+structured_data = []
+# vamos a recorrer cada una de las mesas
+for mesa in all_data:
+    # este diccionario contendrá los datos &quot;limpios de la mesa&quot;
+    n_rec = {}
+    # en este caso &quot;record&quot; es cada campo de información de la mesa
+    for record in mesa['TE'][0].keys():
+        n_rec['NROMESA'] = mesa['NROMESA']
+        # todos los campos, a excepción del conteo de votos, son strings, así que validemos esto primero
+        if record != 'VOTOSTE0':
+            # agregamos cada campo del registro original a nuestro diccionario
+            n_rec[record] = mesa['TE'][0][record]
+        else:
+            # para los registros de votos vamos a crear una columna para cada partido
+            # estas columnas iran como votos_PARTIDO1, votos_PARTIDO2, etc.
+            for votos in mesa['TE'][0]['VOTOSTE0']:
+                # este es un truco simple para tomar los datos del partido y adjuntar el &quot;voto_&quot;
+                n_rec[f&quot;voto_{votos['D'].replace(' ', '_')}&quot;] = int(votos['V'])
+    # finalmente, agregamos el diccionario a nuestra lista que contiene todos los datos estructurados
+    structured_data.append(n_rec)
+</code></pre>
+
+<p>¡Y listo! Ahora tenemos una <a href="https://jinchuika.com/es/post/estructuras_python_1/">lista de diccionarios</a> que contiene todos los registros de manera estructurada. Como quiero exportarlos en un archivo CSV, vamos a utilizar la librería Pandas para convertir esta estructura en un DataFrame y generar los resultados.</p>
+
+<pre><code class="language-python"># convertir la lista en un dataframe de pandas
+main_df = pd.DataFrame(structured_data)
+# exportar el dataframe en un archivo
+main_df.to_csv('../output/final/resultados.csv', index=None)
+</code></pre>
+
+<p>Ya llevamos una de los cuatro tipos de elecciones (en Guatemala hay cinco, pero una de ellas no sirve para nada, así que no la cubriré). Las elecciones de diputados por listado nacional siguen la misma mecánica que las presidenciables, por lo que no agregaré información al respecto. Únicamente debes cambiar el <code>VOTOSTE0</code> por un <code>VOTOSTE1</code>, cambiar los <code>0</code> por <code>1</code> y volver a ejecutar la parte de código de arriba. Así que ya tenemos dos de los cuatro tipos. Ahora vienen los más interesantes: alcaldes y diputados locales.</p>
+
+<p>En Guatemala existen 22 departamentos (regiones), divididos en un total de 340 municipios (ciudades). Cada municipio elige a un alcalde y cada departamento a una cantidad variable de diputados. No todos los partidos políticos que participaron en la presidencia participan en estos dos tipos de elecciones, por lo que seguir el método anterior sería poco práctico. Además, ya que las elecciones son locales, tener un archivo gigante con todos los resultados quizás no sería el resultado ideal. En este caso, creo que prefier crear un archivo por cada municipio y uno por cada departamento. Nuestro objetivo entonces es:</p>
+
+<ul>
+<li>Separar los datos totales en 340 archivos, uno para cada municipio.</li>
+<li>Separar los datos totales en 23 archivos, uno para cada departamento (la ciudad capital se cuenta como un departamento separado).</li>
+</ul>
+
+<p>Ya que el procedimiento será muy similar, explicaré únicamente el más complejo: el de municipios. Empezaré haciendo una pequeña diferencia respecto a los métodos anteriores, en lugar de tener una lista ordenada de registros, crearé un diccionario donde cada clave contenga un set de datos por municipio. Convenientemente, cada registro de mesa tiene un código de departamento y municipio, así que lo usaré para identificar los sets de datos. Para ello utilizaré un <code>defaultdict</code>, una estructura especial de la librería <code>collections</code> de Python. Esta estructura me permite generar un diccionario con un tipo de dato predefinido para cada registro; en este caso será una lista. Mi objetivo es obtener algo así:</p>
+
+<pre><code class="language-python">diccionario_municipios = {
+    # set de datos de municipio 10-13
+    '10-13': [
+        # datos mesa 1,
+        # datos mesa 2,
+    ],
+    # set de datos de municipio 10-14
+    '10-14': [
+        # datos mesa 3,
+        # datos mesa 4,
+    ],
+}
+</code></pre>
+
+<p>Una vez obtenida esta estructura, exportaré cada set de datos a un archivo para poder finalizar el procesamiento.</p>
+
+<pre><code class="language-python"># carpeta de salida
+output_folder = '../output/final/municipios'
+# estructura que contiene la información de los registros de municipalidades
+muni_dict = defaultdict(list)
+for mesa in all_data:
+    # la información por mesa
+    n_rec = {}
+    try:
+        # otra vez, separar cada campo del registro de JSON
+        for record in mesa['TE'][3].keys():
+            n_rec['NROMESA'] = mesa['NROMESA']
+            if record != 'VOTOSTE3':
+                n_rec[record] = mesa['TE'][3][record]
+            else:
+                for votos in mesa['TE'][3]['VOTOSTE3']:
+                    n_rec[f&quot;voto_{votos['D'].replace(' ', '_')}&quot;] = int(votos['V'])
+        # el codigo del set de datos es DEPARTAMENTO-MUNICIPIO
+        codigo_municipio = {mesa[&quot;TE&quot;][3][&quot;DEP&quot;]} + &quot;-&quot; + mesa[&quot;TE&quot;][3][&quot;MUN&quot;]
+        # agregamos los datos de la mesa electoral para la lista contenida en ese código
+        muni_dict[codigo_municipio].append(n_rec)
+    except IndexError:
+        # validando que evita un error a causa de los votos de guatemaltecos en estados unidos
+        pass
+    except KeyError:
+        pass
+# en lugar de exportar un solo archivo, recorremos la lista y exportamos un archivo por cada registro
+for municipio in muni_dict.keys():
+    # exportar cada registro a un archivo individual
+    pd.DataFrame(muni_dict[municipio]).to_csv(f'{output_folder}/{municipio}.csv', index=None)    
+</code></pre>
+
+<p>¡Y con eso terminamos! Ahora, si inspeccionamos la carpeta, veremos que tenemos los 340 archivos generados. Nuevamente, el procedimiento es el mismo para los diputados de distrito. Estoy seguro de que si llegaste hasta aquí tienes puedes modificar el código y adaptarlo a tus necesidades. Puedes ver el código terminado y completo en <a href="https://github.com/jinchuika/tse-scraper/blob/master/data-processing/main_processor.ipynb">el repositorio de GitHub</a>.</p>
+
+
+  <img src="1.png"  alt="Resultados de alcaldías de TSE"  class="center"  style="border-radius: 8px;"  />
+
+
+
+<p>En este post únicamente compartí cómo procesé los datos en la etapa previa a realizar un estudio. Como lo habrás notado, dista mucho de ser un proceso de análisis de datos. Si te interesa la publicación de mi estudio, no olvides <a href="https://twitter.com/chui_k">seguirme en twitter</a>.</p>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Leer otros post</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+          
+            <span class="button next">
+              <a href="https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/">
+                <span class="button__text">Cómo descargué todos los datos de las elecciones de mi país usando Python (y cómo puedes hacerlo tú)</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+    
+
+
+
+
+
+<div id="sharing">
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f7-elecciones-gt-2019-parte2%2f" target="_blank" rel="noopener" aria-label="Facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=C%c3%b3mo%20procesar%20los%20datos%20de%20las%20elecciones%20generales%20utilizando%20Python&amp;url=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f7-elecciones-gt-2019-parte2%2f" target="_blank" rel="noopener" aria-label="Twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f7-elecciones-gt-2019-parte2%2f&amp;title=C%c3%b3mo%20procesar%20los%20datos%20de%20las%20elecciones%20generales%20utilizando%20Python&amp;summary=En%20mi%20post%20anterior%20explicaba%20c%c3%b3mo%20descargu%c3%a9%20toda%20la%20informaci%c3%b3n%20sobre%20las%20elecciones%20generales%20en%20mi%20pa%c3%ads.%20Si%20bien%20estos%20datos%20son%20%c3%batiles%20para%20tener%20un%20respaldo%20de%20la%20informaci%c3%b3n%2c%20deben%20ser%20procesados%20antes%20de%20empezar%20a%20realizar%20cualquier%20an%c3%a1lisis%20con%20ellos.%20En%20este%20post%20te%20explico%20c%c3%b3mo%20proces%c3%a9%20los%20resultados%20para%20generar%20archivos%20f%c3%a1ciles%20de%20leer%20y%20utilizar%20en%20cualquier%20an%c3%a1lisis%20de%20datos.&amp;source=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f7-elecciones-gt-2019-parte2%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f7-elecciones-gt-2019-parte2%2f&amp;resubmit=true&amp;title=C%c3%b3mo%20procesar%20los%20datos%20de%20las%20elecciones%20generales%20utilizando%20Python." target="_blank" rel="noopener" aria-label="Reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg></div>Reddit</div>
+</a>
+
+
+</div>
+
+
+
+    
+
+    </div>
+
+  </div>
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="https://jinchuika.com/es" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Jinchuika</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <small>
+          <a href="https://jinchuika.com/es/politica-privacidad">Privacy</a>
+        </small>
+        <span>© 2019 Luis Carlos Contreras</span>
+      </div>
+    
+  </div>
+</footer>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-60599533-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+<script src="https://jinchuika.com/assets/main.js"></script>
+<script src="https://jinchuika.com/assets/prism.js"></script>
+
+  
+</div>
+
+</body>
+</html>
