@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Luis Carlos Contreras</copyright>
-    <lastBuildDate>Tue, 25 Jun 2019 19:27:40 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2019 14:17:14 -0600</lastBuildDate>
     
 	<atom:link href="https://jinchuika.com/es/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Programación orientada a objetos: Herencia de clases</title>
+      <link>https://jinchuika.com/es/post/9-oop-tutorial-1/</link>
+      <pubDate>Thu, 05 Sep 2019 14:17:14 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/post/9-oop-tutorial-1/</guid>
+      <description>Hice un video tutorial donde explico cómo funciona la herencia de clases en programación orientada a objetos.
+ </description>
+    </item>
     
     <item>
       <title>Cómo procesar los datos de las elecciones generales utilizando Python</title>
