@@ -6,10 +6,19 @@
     <description>Recent content in Programación on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Luis Carlos Contreras</copyright>
-    <lastBuildDate>Thu, 05 Sep 2019 14:17:14 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 08 Sep 2019 19:11:07 -0600</lastBuildDate>
     
 	<atom:link href="https://jinchuika.com/es/tags/programaci%C3%B3n/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cómo crear un Bot de instagram con Python</title>
+      <link>https://jinchuika.com/es/post/10-instagram-bot/</link>
+      <pubDate>Sun, 08 Sep 2019 19:11:07 -0600</pubDate>
+      
+      <guid>https://jinchuika.com/es/post/10-instagram-bot/</guid>
+      <description>¿Te ha pasado que páginas o personas que no conoces de la nada dan like a tus publicaciones o te siguen en Instagram? Por lo general esas páginas son bots, programados para realizar estas acciones.En este post aprenderemos cómo crear un bot de Instagram para ganar más seguidores utilizando Python. Al final del post puedes encontrar la explicación en video (puedes ir directamente desde aquí) sobre cómo hacer el procedimiento (aunque si solo quieres copiar y pegar, seguramente es más fácil).</description>
+    </item>
     
     <item>
       <title>Programación orientada a objetos: Herencia de clases</title>
@@ -18,7 +27,8 @@
       
       <guid>https://jinchuika.com/es/post/9-oop-tutorial-1/</guid>
       <description>Hice un video tutorial donde explico cómo funciona la herencia de clases en programación orientada a objetos.
- </description>
+Primera parte  Segunda parte  Código fuente A continuación puedes encontrar el código utilizado en este video:
+class Vehiculo: nombre = &#39;&#39; llantas = 0 motor = 0 encendido = &amp;quot;Apagado&amp;quot; def __init__(self, nombre, llantas, motor): self.nombre = nombre self.llantas = llantas self.motor = motor def encender(self): self.encendido = &amp;quot;Encendido&amp;quot; def apagar(self): self.</description>
     </item>
     
     <item>

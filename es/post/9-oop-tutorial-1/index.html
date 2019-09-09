@@ -35,7 +35,7 @@
     "datePublished": "2019-09-05 14:17:14 -0600 CST",
     "dateModified" : "2019-09-05 14:17:14 -0600 CST",
     "url" : "https://jinchuika.com/es/post/9-oop-tutorial-1/",
-    "wordCount" : "17",
+    "wordCount" : "195",
     
     "image": {
         "@type": "ImageObject",
@@ -57,7 +57,8 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="Hice un video tutorial donde explico cómo funciona la herencia de clases en programación orientada a objetos.
- "/>
+Primera parte  Segunda parte  Código fuente A continuación puedes encontrar el código utilizado en este video:
+class Vehiculo: nombre = &#39;&#39; llantas = 0 motor = 0 encendido = &amp;quot;Apagado&amp;quot; def __init__(self, nombre, llantas, motor): self.nombre = nombre self.llantas = llantas self.motor = motor def encender(self): self.encendido = &amp;quot;Encendido&amp;quot; def apagar(self): self."/>
 <meta name="keywords" content="blog,tecnología,programación,inteligencia artificial,machine learning"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://jinchuika.com/es/post/9-oop-tutorial-1/" />
@@ -76,7 +77,8 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Programación orientada a objetos: Herencia de clases :: Jinchuika — Blog de programación" />
 <meta name="twitter:description" content="Hice un video tutorial donde explico cómo funciona la herencia de clases en programación orientada a objetos.
- " />
+Primera parte  Segunda parte  Código fuente A continuación puedes encontrar el código utilizado en este video:
+class Vehiculo: nombre = &#39;&#39; llantas = 0 motor = 0 encendido = &amp;quot;Apagado&amp;quot; def __init__(self, nombre, llantas, motor): self.nombre = nombre self.llantas = llantas self.motor = motor def encender(self): self.encendido = &amp;quot;Encendido&amp;quot; def apagar(self): self." />
 <meta name="twitter:site" content="https://jinchuika.com" />
 <meta name="twitter:creator" content="Luis Carlos Contreras" />
 <meta name="twitter:image" content="https://jinchuika.com/es/post/9-oop-tutorial-1/cover.jpg">
@@ -86,7 +88,8 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Programación orientada a objetos: Herencia de clases :: Jinchuika — Blog de programación">
 <meta property="og:description" content="Hice un video tutorial donde explico cómo funciona la herencia de clases en programación orientada a objetos.
- " />
+Primera parte  Segunda parte  Código fuente A continuación puedes encontrar el código utilizado en este video:
+class Vehiculo: nombre = &#39;&#39; llantas = 0 motor = 0 encendido = &amp;quot;Apagado&amp;quot; def __init__(self, nombre, llantas, motor): self.nombre = nombre self.llantas = llantas self.motor = motor def encender(self): self.encendido = &amp;quot;Encendido&amp;quot; def apagar(self): self." />
 <meta property="og:url" content="https://jinchuika.com/es/post/9-oop-tutorial-1/" />
 <meta property="og:site_name" content="Programación orientada a objetos: Herencia de clases" />
 <meta property="og:image" content="https://jinchuika.com/es/post/9-oop-tutorial-1/cover.jpg">
@@ -208,9 +211,90 @@
     
 
     <div class="post-content">
-      <p>Hice un video tutorial donde explico cómo funciona la herencia de clases en programación orientada a objetos.</p>
+      
+
+<p>Hice un video tutorial donde explico cómo funciona la herencia de clases en programación orientada a objetos.</p>
+
+<h2 id="primera-parte">Primera parte</h2>
 
 <iframe width="720" height="480" src="https://www.youtube.com/embed/EYj8p8ku3Nk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="segunda-parte">Segunda parte</h2>
+
+<iframe width="720" height="480" src="https://www.youtube.com/embed/Za2SdvR_fpA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="código-fuente">Código fuente</h2>
+
+<p>A continuación puedes encontrar el código utilizado en este video:</p>
+
+<pre><code class="language-python">class Vehiculo:
+    nombre = ''
+    llantas = 0
+    motor = 0
+    encendido = &quot;Apagado&quot;
+
+    def __init__(self, nombre, llantas, motor):
+        self.nombre = nombre
+        self.llantas = llantas
+        self.motor = motor
+
+    def encender(self):
+        self.encendido = &quot;Encendido&quot;
+
+    def apagar(self):
+        self.encendido = &quot;Apagado&quot;
+
+
+class Auto(Vehiculo):
+    puertas = 0
+    puertas_abiertas = False
+
+    def __init__(self, nombre, llantas, motor, puertas):
+        self.nombre = nombre
+        self.llantas = llantas
+        self.motor = motor
+        self.puertas = puertas
+
+    def abrir_puertas(self):
+        self.puertas_abiertas = True
+
+    def cerrar_puertas(self):
+        self.puertas_abiertas = False
+
+
+class Moto(Vehiculo):
+    pass
+
+
+class Autobus(Vehiculo):
+    max_pasajeros = 0
+    pasajeros = 0
+    tarifa = 0
+    pasaje_recaudado = 0
+
+    def __init__(self, nombre, llantas, motor, tarifa, max_pasajeros):
+        self.nombre = nombre
+        self.llantas = llantas
+        self.motor = motor
+        self.tarifa = tarifa
+        self.max_pasajeros = max_pasajeros
+
+    def abordar_pasajeros(self, pasajeros_abordando):
+        nuevos_pasajeros = self.pasajeros + pasajeros_abordando
+        if nuevos_pasajeros &gt; self.max_pasajeros:
+            print(&quot;El bus ya está lleno&quot;)
+        else:
+            self.pasajeros = nuevos_pasajeros
+            self.pasaje_recaudado = self.pasaje_recaudado + (pasajeros_abordando * self.tarifa)
+
+    def desbordar_pasajeros(self, pasajeros_desbordando):
+        nuevos_pasajeros = self.pasajeros + pasajeros_desbordando
+        if nuevos_pasajeros &lt; 0:
+            print(&quot;El bus ya está vacío&quot;)
+        else:
+            self.pasajeros = nuevos_pasajeros
+
+</code></pre>
 
     </div>
     
@@ -220,6 +304,13 @@
           <hr />
         </div>
         <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://jinchuika.com/es/post/10-instagram-bot/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Cómo crear un Bot de instagram con Python</span>
+              </a>
+            </span>
           
           
             <span class="button next">

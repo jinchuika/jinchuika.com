@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+    <script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jinchuika.com"
+    },
+    "articleSection" : "post",
+    "name" : "Cómo crear un Bot de instagram con Python",
+    "headline" : "Cómo crear un Bot de instagram con Python",
+    "description" : "¿Te ha pasado que páginas o personas que no conoces de la nada dan like a tus publicaciones o te siguen en Instagram? Por lo general esas páginas son bots, programados para realizar estas acciones.En este post aprenderemos cómo crear uno utilizando Python.",
+    "inLanguage" : "es",
+    "author": {
+        "@type": "Person",
+        "name": "Luis Carlos Contreras"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Luis Carlos Contreras",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://jinchuika.com/img/favicon.ico",
+            "width": "80",
+            "height": "80"
+        }
+    },
+    "creator" : "Luis Carlos Contreras",
+    "copyrightHolder" : "Luis Carlos Contreras",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-08 19:11:07 -0600 CST",
+    "dateModified" : "2019-09-08 19:11:07 -0600 CST",
+    "url" : "https://jinchuika.com/es/post/10-instagram-bot/",
+    "wordCount" : "627",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://jinchuika.com/es/post/10-instagram-bot/cover.png",
+        "width": 800,
+        "height": 600
+    },
+    
+    "keywords" : [
+    
+    "python","programación","instabot", "blog"
+    
+    ]
+}
+</script>
+
+    <title>Cómo crear un Bot de instagram con Python :: Jinchuika — Blog de programación</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="¿Te ha pasado que páginas o personas que no conoces de la nada dan like a tus publicaciones o te siguen en Instagram? Por lo general esas páginas son bots, programados para realizar estas acciones.En este post aprenderemos cómo crear un bot de Instagram para ganar más seguidores utilizando Python. Al final del post puedes encontrar la explicación en video (puedes ir directamente desde aquí) sobre cómo hacer el procedimiento (aunque si solo quieres copiar y pegar, seguramente es más fácil)."/>
+<meta name="keywords" content="blog,tecnología,programación,inteligencia artificial,machine learning"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://jinchuika.com/es/post/10-instagram-bot/" />
+
+
+<link rel="stylesheet" href="https://jinchuika.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://jinchuika.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://jinchuika.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://jinchuika.com/img/favicon.ico">
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Cómo crear un Bot de instagram con Python :: Jinchuika — Blog de programación" />
+<meta name="twitter:description" content="¿Te ha pasado que páginas o personas que no conoces de la nada dan like a tus publicaciones o te siguen en Instagram? Por lo general esas páginas son bots, programados para realizar estas acciones.En este post aprenderemos cómo crear un bot de Instagram para ganar más seguidores utilizando Python. Al final del post puedes encontrar la explicación en video (puedes ir directamente desde aquí) sobre cómo hacer el procedimiento (aunque si solo quieres copiar y pegar, seguramente es más fácil)." />
+<meta name="twitter:site" content="https://jinchuika.com" />
+<meta name="twitter:creator" content="Luis Carlos Contreras" />
+<meta name="twitter:image" content="https://jinchuika.com/es/post/10-instagram-bot/cover.png">
+
+
+<meta property="og:locale" content="es" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Cómo crear un Bot de instagram con Python :: Jinchuika — Blog de programación">
+<meta property="og:description" content="¿Te ha pasado que páginas o personas que no conoces de la nada dan like a tus publicaciones o te siguen en Instagram? Por lo general esas páginas son bots, programados para realizar estas acciones.En este post aprenderemos cómo crear un bot de Instagram para ganar más seguidores utilizando Python. Al final del post puedes encontrar la explicación en video (puedes ir directamente desde aquí) sobre cómo hacer el procedimiento (aunque si solo quieres copiar y pegar, seguramente es más fácil)." />
+<meta property="og:url" content="https://jinchuika.com/es/post/10-instagram-bot/" />
+<meta property="og:site_name" content="Cómo crear un Bot de instagram con Python" />
+<meta property="og:image" content="https://jinchuika.com/es/post/10-instagram-bot/cover.png">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:section" content="tutorial" />
+<meta property="article:published_time" content="2019-09-08 19:11:07 -0600 CST" />
+
+
+
+
+
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({
+	google_ad_client: "ca-pub-7910880084570598",
+	enable_page_level_ads: true
+});
+</script>
+</head>
+<body class="dark-theme">
+<div class="container">
+  <header class="header">
+  <span class="header__inner">
+    <a href="https://jinchuika.com/es" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Jinchuika</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="about">Acerca de</a></li>
+        
+      
+        
+          <li><a href="https://jinchuika.com/en">English</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="about">Acerca de</a></li>
+      
+    
+      
+        <li><a href="https://jinchuika.com/en">English</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+  <div class="content">
+    
+  <div class="post">
+    <h2 class="post-title"><a href="https://jinchuika.com/es/post/10-instagram-bot/">Cómo crear un Bot de instagram con Python</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-09-08
+        </span>
+      
+      <span class="post-author">— Escrito por Luis Carlos Contreras</span>
+      
+        <span class="post-read-time">— 3 minutos</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="https://jinchuika.com/tags/python">python</a>&nbsp;
+        
+          #<a href="https://jinchuika.com/tags/programaci%C3%B3n">programación</a>&nbsp;
+        
+          #<a href="https://jinchuika.com/tags/instabot">instabot</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        <img src="https://jinchuika.com/es/post/10-instagram-bot/cover.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+
+<p>¿Te ha pasado que páginas o personas que no conoces de la nada dan like a tus publicaciones o te siguen en Instagram? Por lo general esas páginas son bots, programados para realizar estas acciones.En este post aprenderemos cómo crear un bot de Instagram para ganar más seguidores utilizando Python. Al final del post puedes encontrar la explicación en video (<a href="#tutorial-en-video">puedes ir directamente desde aquí</a>) sobre cómo hacer el procedimiento (aunque si solo quieres copiar y pegar, seguramente es más fácil).</p>
+
+<h2 id="instalación-de-la-librería">Instalación de la librería</h2>
+
+<p>Para crear el bot vamos a utilizar la fantástica librería de Python: <a href="https://github.com/instagrambot/instabot">instabot</a>. Empecemos por instalarlo utilizando <code>pip</code> (que ya deberías tener instalado junto a Python).</p>
+
+<pre><code>pip install instabot
+</code></pre>
+
+<p>Algo excelente es de la librería es que tiene <a href="https://github.com/instagrambot/instabot/tree/master/examples">muchísimos ejemplos</a> de los cuales tomar ideas.</p>
+
+<h2 id="creación-del-bot">Creación del bot</h2>
+
+<p>Hacer el bot es sumamente sencillo, solo importas la librería y creas una nueva instancia de la clase <code>Bot</code>.</p>
+
+<pre><code class="language-python"># importar la clase a utilizar
+from instabot import Bot
+# crear el nuevo objeto
+mi_bot = Bot()
+</code></pre>
+
+<p>Después de eso, puedes iniciar sesión con el método <code>login()</code>. Este método te pedirá utilizar tu nombre de usuario y contraseña. Hay muchas formas de dar esta información de formas más seguras que simplemente escribiéndolas. El principal problema con dejar la contraseña dentro del archivo es que si la agregas a un control de versiones como GitHub, estarás compartiendo tus credenciales con el mundo. Yo recomendaría utilizar variables de entorno, pero para hacer este post más sencillo, dejemos las credenciales a simple vista.</p>
+
+<pre><code class="language-python">mi_bot.login(username='mi_nombre_de_usuario', password='mi_password')
+</code></pre>
+
+<p>Y con eso ya habrás iniciado sesión. Una vez hecho este procedimiento, se pueden realizar básicamente las mismas acciones disponibles del App: seguir gente, dar likes, publicar, dejar de seguir, etc. En este ejemplo crearemos una forma fácil de obtener más seguidores: siguiendo más gente.</p>
+
+<h2 id="obteniendo-más-seguidores">Obteniendo más seguidores</h2>
+
+<p>La forma clásica de obtener más seguidores no tiene demasiada ciencia. Muchas personas simplemente dan <em>Follow back</em> cuando ven que tienen un seguidor nuevo. Así que vamos a hacer precisamente eso. Como la cuenta de instagram con la que estoy tratando de obtener más seguidores se trata de programación, quiero seguir a gente que ya siga páginas similares. Así que el primer paso es encontrar esa cuenta (la dejo a tu elección). Para este ejemplo, le diremos <code>cuenta_objetivo</code>.</p>
+
+<p>Ahora que la cuenta ya está seleccionada, vamos a ejecutar el método incluido en la clase del bot.</p>
+
+<pre><code class="language-python">mi_bot.follow_followers('cuenta_objetivo')
+</code></pre>
+
+<p>Y ya. Con eso el bot empezará el proceso de seguir a todos los seguidores de <code>cuenta_objetivo</code>. El listado de todas las cuentas seguidas se agregará a un archivo llamado <code>followed.txt</code>. Eso sí, las cuentas estarán representadas por su id interno en formato numérico. Pero para fines prácticos, el mismo bot puede ayudarte después a obtener el nombre de usuario de cada quien.</p>
+
+<p>Para ejecutar el script, solo copia todo el código en un archivo llamado <code>main.py</code>, que debería lucir de la siguiente manera:</p>
+
+<pre><code class="language-python">from instabot import Bot
+mi_bot = Bot()
+mi_bot.follow_followers('cuenta_objetivo')
+</code></pre>
+
+<p>Y luego lo ejecutas con el siguiente comando (recuerda haber instalado <code>instabot</code>:</p>
+
+<pre><code>python main.py
+</code></pre>
+
+<h2 id="limitaciones">Limitaciones</h2>
+
+<p>Una limitación de este método es que no puede seguir cuentas privadas. Así que para la gente que tiene protección de privacidad en su cuenta, tendrás que utilizar un método diferente que cubriré en otro post.</p>
+
+<p>Otra limitación a considerar es que el API de instagram solo admite cierta cantidad de acciones cada cierto tiempo. El bot ya incluye varios métodos automatizados para esperar después de que el tiempo límite para cada acción, pero es algo que debes tener en cuenta el ejecutar este procedimiento.</p>
+
+<h2 id="tutorial-en-video">Tutorial en video</h2>
+
+<p>Y bueno, si no te gusta leer (no sé cómo llegaste hasta aquí), siempre puedes ver el tutorial en video.</p>
+
+<iframe width="720" height="480" src="https://www.youtube.com/embed/Euhg_XYbDvg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>Y ya que estás aquí, puedes aprovechar para seguir <a href="https://www.instagram.com/chui_k/">mi cuenta ;)</a>.</p>
+
+    </div>
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Leer otros post</span>
+          <hr />
+        </div>
+        <div class="pagination__buttons">
+          
+          
+            <span class="button next">
+              <a href="https://jinchuika.com/es/post/9-oop-tutorial-1/">
+                <span class="button__text">Programación orientada a objetos: Herencia de clases</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+    
+
+
+
+
+
+<div id="sharing">
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f10-instagram-bot%2f" target="_blank" rel="noopener" aria-label="Facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=C%c3%b3mo%20crear%20un%20Bot%20de%20instagram%20con%20Python&amp;url=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f10-instagram-bot%2f" target="_blank" rel="noopener" aria-label="Twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f10-instagram-bot%2f&amp;title=C%c3%b3mo%20crear%20un%20Bot%20de%20instagram%20con%20Python&amp;summary=%c2%bfTe%20ha%20pasado%20que%20p%c3%a1ginas%20o%20personas%20que%20no%20conoces%20de%20la%20nada%20dan%20like%20a%20tus%20publicaciones%20o%20te%20siguen%20en%20Instagram%3f%20Por%20lo%20general%20esas%20p%c3%a1ginas%20son%20bots%2c%20programados%20para%20realizar%20estas%20acciones.En%20este%20post%20aprenderemos%20c%c3%b3mo%20crear%20uno%20utilizando%20Python.&amp;source=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f10-instagram-bot%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fjinchuika.com%2fes%2fpost%2f10-instagram-bot%2f&amp;resubmit=true&amp;title=C%c3%b3mo%20crear%20un%20Bot%20de%20instagram%20con%20Python." target="_blank" rel="noopener" aria-label="Reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg></div>Reddit</div>
+</a>
+
+
+</div>
+
+
+
+    
+
+    </div>
+
+  </div>
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="https://jinchuika.com/es" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
+  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Jinchuika</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <small>
+          <a href="https://jinchuika.com/es/politica-privacidad">Privacy</a>
+        </small>
+        <span>© 2019 Luis Carlos Contreras</span>
+      </div>
+    
+  </div>
+</footer>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-60599533-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+<script src="https://jinchuika.com/assets/main.js"></script>
+<script src="https://jinchuika.com/assets/prism.js"></script>
+
+  
+</div>
+
+</body>
+</html>
