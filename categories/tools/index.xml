@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tools on Jinchuika</title>
+    <title>tools on Jinchuika</title>
     <link>https://jinchuika.com/categories/tools/</link>
-    <description>Recent content in Tools on Jinchuika</description>
+    <description>Recent content in tools on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Luis Carlos Contreras</copyright>
     <lastBuildDate>Fri, 31 May 2019 07:00:11 -0600</lastBuildDate>

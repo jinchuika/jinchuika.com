@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on Jinchuika</title>
+    <title>python on Jinchuika</title>
     <link>https://jinchuika.com/es/tags/python/</link>
-    <description>Recent content in Python on Jinchuika</description>
+    <description>Recent content in python on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Luis Carlos Contreras</copyright>
     <lastBuildDate>Sun, 08 Sep 2019 19:11:07 -0600</lastBuildDate>
@@ -27,8 +27,8 @@
       
       <guid>https://jinchuika.com/es/post/9-oop-tutorial-1/</guid>
       <description>Hice un video tutorial donde explico cómo funciona la herencia de clases en programación orientada a objetos.
-Primera parte  Segunda parte  Código fuente A continuación puedes encontrar el código utilizado en este video:
-class Vehiculo: nombre = &#39;&#39; llantas = 0 motor = 0 encendido = &amp;quot;Apagado&amp;quot; def __init__(self, nombre, llantas, motor): self.nombre = nombre self.llantas = llantas self.motor = motor def encender(self): self.encendido = &amp;quot;Encendido&amp;quot; def apagar(self): self.</description>
+Primera parte Segunda parte Código fuente A continuación puedes encontrar el código utilizado en este video:
+class Vehiculo: nombre = &amp;#39;&amp;#39; llantas = 0 motor = 0 encendido = &amp;#34;Apagado&amp;#34; def __init__(self, nombre, llantas, motor): self.nombre = nombre self.llantas = llantas self.motor = motor def encender(self): self.encendido = &amp;#34;Encendido&amp;#34; def apagar(self): self.encendido = &amp;#34;Apagado&amp;#34; class Auto(Vehiculo): puertas = 0 puertas_abiertas = False def __init__(self, nombre, llantas, motor, puertas): self.</description>
     </item>
     
     <item>

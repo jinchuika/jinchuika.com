@@ -8,7 +8,7 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://jinchuika.com"
+        "@id": "https:\/\/jinchuika.com"
     },
     "articleSection" : "post",
     "name" : "What is the new Visual Studio Code Remote feature and how to use it",
@@ -24,7 +24,7 @@
         "name": "Luis Carlos Contreras",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://jinchuika.com/img/favicon.ico",
+            "url": "https:\/\/jinchuika.com\/img\/favicon.ico",
             "width": "80",
             "height": "80"
         }
@@ -34,12 +34,12 @@
     "copyrightYear" : "2019",
     "datePublished": "2019-05-31 07:00:11 -0600 CST",
     "dateModified" : "2019-05-31 07:00:11 -0600 CST",
-    "url" : "https://jinchuika.com/post/2-vs-code-remote/",
+    "url" : "https:\/\/jinchuika.com\/post\/2-vs-code-remote\/",
     "wordCount" : "591",
     
     "image": {
         "@type": "ImageObject",
-        "url": "https://jinchuika.com/post/2-vs-code-remote/0-vs-code.png",
+        "url": "https:\/\/jinchuika.com\/post\/2-vs-code-remote\/0-vs-code.png",
         "width": 800,
         "height": 600
     },
@@ -62,6 +62,9 @@
 <link rel="canonical" href="https://jinchuika.com/post/2-vs-code-remote/" />
 
 
+
+
+
 <link rel="stylesheet" href="https://jinchuika.com/assets/style.css">
 
 
@@ -69,29 +72,21 @@
 
 
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://jinchuika.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://jinchuika.com/img/favicon.ico">
+<link rel="shortcut icon" href="https://jinchuika.com/img/favicon.png">
 
 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="What is the new Visual Studio Code Remote feature and how to use it :: Jinchuika — Developer blog" />
-<meta name="twitter:description" content="Visual Studio Code just launched one of the most interesting features ever in a code editor: the option to install it on a server and access all your files remotely, using all your plugins and tools from your normal editor. I&amp;rsquo;ve already used it to edit some configuration and environment files on a couple servers and the experiences is awesome. In this post, I&amp;rsquo;ll explain how to install it using SSH and why it is convenient." />
-<meta name="twitter:site" content="https://jinchuika.com" />
-<meta name="twitter:creator" content="Luis Carlos Contreras" />
-<meta name="twitter:image" content="https://jinchuika.com/post/2-vs-code-remote/0-vs-code.png">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="What is the new Visual Studio Code Remote feature and how to use it"/>
+<meta name="twitter:description" content="Visual Studio Code just launched one of the most interesting features ever in a code editor: the option to install it on a server and access all your files remotely, using all your plugins and tools from your normal editor."/>
 
 
-<meta property="og:locale" content="en" />
+
+<meta property="og:title" content="What is the new Visual Studio Code Remote feature and how to use it" />
+<meta property="og:description" content="Visual Studio Code just launched one of the most interesting features ever in a code editor: the option to install it on a server and access all your files remotely, using all your plugins and tools from your normal editor." />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="What is the new Visual Studio Code Remote feature and how to use it :: Jinchuika — Developer blog">
-<meta property="og:description" content="Visual Studio Code just launched one of the most interesting features ever in a code editor: the option to install it on a server and access all your files remotely, using all your plugins and tools from your normal editor. I&amp;rsquo;ve already used it to edit some configuration and environment files on a couple servers and the experiences is awesome. In this post, I&amp;rsquo;ll explain how to install it using SSH and why it is convenient." />
 <meta property="og:url" content="https://jinchuika.com/post/2-vs-code-remote/" />
-<meta property="og:site_name" content="What is the new Visual Studio Code Remote feature and how to use it" />
-<meta property="og:image" content="https://jinchuika.com/post/2-vs-code-remote/0-vs-code.png">
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-<meta property="article:section" content="tools" /><meta property="article:section" content="software" />
-<meta property="article:published_time" content="2019-05-31 07:00:11 -0600 CST" />
-
+<meta property="article:published_time" content="2019-05-31T07:00:11-06:00" />
+<meta property="article:modified_time" content="2019-05-31T07:00:11-06:00" /><meta property="og:site_name" content="Jinchuika" />
 
 
 
@@ -112,8 +107,8 @@
   <span class="header__inner">
     <a href="https://jinchuika.com/" class="logo" style="text-decoration: none;">
   
-    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
-  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
 </svg>
 </span>
     <span class="logo__text">Jinchuika</span>
@@ -174,14 +169,22 @@
 
   <div class="content">
     
+  
+  
+
   <div class="post">
     <h2 class="post-title"><a href="https://jinchuika.com/post/2-vs-code-remote/">What is the new Visual Studio Code Remote feature and how to use it</a></h2>
     <div class="post-meta">
       
         <span class="post-date">
-            2019-05-31
+          2019-05-31
         </span>
+
+        
+          
+        
       
+
       <span class="post-author">— Written by Luis Carlos Contreras</span>
       
         <span class="post-read-time">— 3 min read</span>
@@ -191,9 +194,9 @@
     
       <span class="post-tags">
         
-          #<a href="https://jinchuika.com/tags/visual-studio-code">Visual Studio Code</a>&nbsp;
+          #<a href="https://jinchuika.com/tags/visual-studio-code/">Visual Studio Code</a>&nbsp;
         
-          #<a href="https://jinchuika.com/tags/ssh">SSH</a>&nbsp;
+          #<a href="https://jinchuika.com/tags/ssh/">SSH</a>&nbsp;
         
       </span>
     
@@ -207,33 +210,23 @@
     <div class="post-content">
       <p>Visual Studio Code just launched one of the most interesting features ever in a code editor: the option to install it on a server and access all your files remotely, using all your plugins and tools from your normal editor. I&rsquo;ve already used it to edit some configuration and environment files on a couple servers and the experiences is awesome. In this post, I&rsquo;ll explain how to install it using SSH and why it is convenient.</p>
 
-
   <img src="1-vscode-remote.png"  alt="Visual Studio Code remote extension"  class="center"  />
-
 
 
 <p>For now, you will need to download the <a href="https://code.visualstudio.com/insiders/">insiders version</a> of VS Code in order to use the feature. Once you have it installed on your computer, go to the extensions section from the side bar and look for &ldquo;Remote Development&rdquo;. This extension pack will install everything you need in order to use all the possible ways of connection. After downloading everything, you will see the &ldquo;Open remote window&rdquo; button in the left bottom corner of the screen.</p>
 
-
   <img src="2-vscode-remote.png"  alt="Visual Studio Code remote extension"  class="center"  />
 
 
-
 <p>Now, we have three ways for connecting to a remote server using the extension:</p>
-
 <ul>
 <li>SSH: use the all well loved protocol to connect to remote servers.</li>
 <li>Containers: connect to servers in a containered environment. Very useful if you already develop / deploy using Docker and want to use the feature on containers.</li>
 <li>WSL: get a Linux development environment inside of a Windows machine using the Windows Subsystem for Linux.</li>
 </ul>
-
 <p>I will focus on the SSH one, since is the easier to get rolling and you won&rsquo;t need to change or install anything extra. You just need an SSH client (which all Linux and Mac already have, and is very easy to <a href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse">install on Windows</a>) and an authentication key. You can create that key by typing</p>
-
 <pre><code>ssh-keygen -t rsa -b 4096
-</code></pre>
-
-<p>This will ask you to enter the file location for the key. I will use the default one, but <a href="https://code.visualstudio.com/docs/remote/troubleshooting#_improving-your-security-with-a-dedicated-key">you can change it</a> in order to make one file for each server key. It goes like:</p>
-
+</code></pre><p>This will ask you to enter the file location for the key. I will use the default one, but <a href="https://code.visualstudio.com/docs/remote/troubleshooting#_improving-your-security-with-a-dedicated-key">you can change it</a> in order to make one file for each server key. It goes like:</p>
 <pre><code>Enter file in which to save the key (/home/chuik/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
@@ -242,10 +235,7 @@ Your public key has been saved in id_rsa.pub.
 The key fingerprint is:
 SHA256:v/YyFE2yVvnbj83BQncNydgiTFAkvqxP4jveDsrm9Lc chuik@chuik-xps
 The key's randomart image is:
-</code></pre>
-
-<p>Now, you will need to copy your key with your cedentials on to the server. You can do it with <code>ssh-copy-id your-username@your-server-host-or-ip</code>. In my case, it was something like:</p>
-
+</code></pre><p>Now, you will need to copy your key with your cedentials on to the server. You can do it with <code>ssh-copy-id your-username@your-server-host-or-ip</code>. In my case, it was something like:</p>
 <pre><code>$ ssh-copy-id jinchuika@10.10.10.248
 jinchuika@10.10.10.248's password: &lt;--- TYPE YOUR PASSWORD WHEN ASKED
 
@@ -253,87 +243,50 @@ Number of key(s) added: 1
 
 Now try logging into the machine, with:   &quot;ssh 'jinchuika@10.10.10.248'&quot;
 and check to make sure that only the key(s) you wanted were added.
-</code></pre>
-
-<p>You should be able to connect to the server using SSH, without having to enter your password. Back to VS Code, click on the &ldquo;Open a remote window&rdquo; button in the bottom left corner of the window and select &ldquo;Remote-SSH: Connect to Host&rdquo;. Since you will probably won&rsquo;t have any previous host configured (or even if you already have), let&rsquo;s select <code>Configure SSH Hosts...</code> to create a new one. For the configuration, I used the default file since it&rsquo;s alrerady there and I don&rsquo;t want to be messing up with more config files.</p>
-
+</code></pre><p>You should be able to connect to the server using SSH, without having to enter your password. Back to VS Code, click on the &ldquo;Open a remote window&rdquo; button in the bottom left corner of the window and select &ldquo;Remote-SSH: Connect to Host&rdquo;. Since you will probably won&rsquo;t have any previous host configured (or even if you already have), let&rsquo;s select <code>Configure SSH Hosts...</code> to create a new one. For the configuration, I used the default file since it&rsquo;s alrerady there and I don&rsquo;t want to be messing up with more config files.</p>
 
   <img src="4-vscode-remote.png"  alt="Configure Hosts in Visual Studio Code remote"  class="center"  />
 
 
-
 <p>In the configuration file, enter a new register for the host you&rsquo;re connecting to. For example, in my case it was:</p>
-
 <pre><code>Host MyServer
 	HostName 10.10.10.248
 	User jinchuika
 </code></pre>
-
-
   <img src="5-vscode-remote.png"  alt="Configure Hosts in Visual Studio Code remote"  class="center"  />
-
 
 
 <p>And that&rsquo;s it! Now you should be able to connect to your server using VS Code remote. This will let you use stuff like autocomplete, managing folders and files, code linting and all the normal features from VS Code.</p>
 
     </div>
     
-      <div class="pagination">
-        <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://jinchuika.com/post/1-preprocessing-part-1/">
+                  <span class="button__text">Preprocessing data for data science (Part 1)</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
         </div>
-        <div class="pagination__buttons">
-          
-          
-            <span class="button next">
-              <a href="https://jinchuika.com/post/1-preprocessing-part-1/">
-                <span class="button__text">Preprocessing data for data science (Part 1)</span>
-                <span class="button__icon">→</span>
-              </a>
-            </span>
-          
-        </div>
-      </div>
-    
+      
     
 
 
+    
+      
+        
 
-
-
-<div id="sharing">
-
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fjinchuika.com%2fpost%2f2-vs-code-remote%2f" target="_blank" rel="noopener" aria-label="Facebook">
-  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=What%20is%20the%20new%20Visual%20Studio%20Code%20Remote%20feature%20and%20how%20to%20use%20it&amp;url=https%3a%2f%2fjinchuika.com%2fpost%2f2-vs-code-remote%2f" target="_blank" rel="noopener" aria-label="Twitter">
-  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjinchuika.com%2fpost%2f2-vs-code-remote%2f&amp;title=What%20is%20the%20new%20Visual%20Studio%20Code%20Remote%20feature%20and%20how%20to%20use%20it&amp;summary=Visual%20Studio%20Code%20just%20launched%20one%20of%20the%20most%20interesting%20features%20ever%20in%20a%20code%20editor%3a%20the%20option%20to%20install%20it%20on%20a%20server%20and%20access%20all%20your%20files%20remotely%2c%20using%20all%20your%20plugins%20and%20tools%20from%20your%20normal%20editor.&amp;source=https%3a%2f%2fjinchuika.com%2fpost%2f2-vs-code-remote%2f" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fjinchuika.com%2fpost%2f2-vs-code-remote%2f&amp;resubmit=true&amp;title=What%20is%20the%20new%20Visual%20Studio%20Code%20Remote%20feature%20and%20how%20to%20use%20it." target="_blank" rel="noopener" aria-label="Reddit">
-  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg></div>Reddit</div>
-</a>
-
-
-</div>
-
-
-
+      
     
 
     </div>
@@ -343,42 +296,25 @@ and check to make sure that only the key(s) you wanted were added.
     <footer class="footer">
   <div class="footer__inner">
     
-      <a href="https://jinchuika.com/" class="logo" style="text-decoration: none;">
-  
-    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" width="44" height="44" viewBox="0 0 44 44">
-  <polyline fill="none" stroke="#000" stroke-width="2" points="15 8 29.729 22.382 15 35.367"/>
-</svg>
-</span>
-    <span class="logo__text">Jinchuika</span>
-    <span class="logo__cursor"></span>
-  
-</a>
-
-      <div class="copyright">
-        <small>
-          <a href="https://jinchuika.com/privacy-policy">Privacy</a>
-        </small>
-        <span>© 2019 Luis Carlos Contreras</span>
-      </div>
+      <div class="copyright copyright--user">Luis Carlos Contreras</div>
     
   </div>
 </footer>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-60599533-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
 <script src="https://jinchuika.com/assets/main.js"></script>
 <script src="https://jinchuika.com/assets/prism.js"></script>
+<script type="application/javascript">
+    var doNotTrack = false;
+    if (!doNotTrack) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-60599533-1', 'auto');
+        
+        ga('send', 'pageview');
+    }
+</script>
 
   
 </div>
