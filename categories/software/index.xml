@@ -6,11 +6,7 @@
     <description>Recent content in software on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Luis Carlos Contreras</copyright>
-    <lastBuildDate>Fri, 31 May 2019 07:00:11 -0600</lastBuildDate>
-    
-	<atom:link href="https://jinchuika.com/categories/software/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 31 May 2019 07:00:11 -0600</lastBuildDate><atom:link href="https://jinchuika.com/categories/software/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What is the new Visual Studio Code Remote feature and how to use it</title>
       <link>https://jinchuika.com/post/2-vs-code-remote/</link>

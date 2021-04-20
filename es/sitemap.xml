@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://jinchuika.com/es/categories/</loc>
     <lastmod>2019-09-08T19:11:07-06:00</lastmod>
@@ -15,19 +14,26 @@
                 hreflang="es"
                 href="https://jinchuika.com/es/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/post/10-instagram-bot/</loc>
     <lastmod>2019-09-08T19:11:07-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/tags/instabot/</loc>
     <lastmod>2019-09-08T19:11:07-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jinchuika.com/es/</loc>
+    <lastmod>2019-09-08T19:11:07-06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jinchuika.com/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jinchuika.com/es/"
+                />
+  </url><url>
     <loc>https://jinchuika.com/es/post/</loc>
     <lastmod>2019-09-08T19:11:07-06:00</lastmod>
     <xhtml:link
@@ -40,19 +46,13 @@
                 hreflang="es"
                 href="https://jinchuika.com/es/post/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/tags/programaci%C3%B3n/</loc>
     <lastmod>2019-09-08T19:11:07-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/tags/python/</loc>
     <lastmod>2019-09-08T19:11:07-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/tags/</loc>
     <lastmod>2019-09-08T19:11:07-06:00</lastmod>
     <xhtml:link
@@ -65,114 +65,61 @@
                 hreflang="es"
                 href="https://jinchuika.com/es/tags/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/categories/tutorial/</loc>
     <lastmod>2019-09-08T19:11:07-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/post/9-oop-tutorial-1/</loc>
     <lastmod>2019-09-05T14:17:14-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/post/7-elecciones-gt-2019-parte2/</loc>
     <lastmod>2019-06-25T19:27:40-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/post/6-elecciones-gt-2019-parte1/</loc>
     <lastmod>2019-06-22T23:59:16-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/tags/inteligencia-artificial/</loc>
     <lastmod>2019-04-19T22:40:23-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/post/5-por-que-python/</loc>
     <lastmod>2019-04-19T22:40:23-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jinchuika.com/es/</loc>
-    <lastmod>2019-04-03T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jinchuika.com/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jinchuika.com/es/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/politica-privacidad/</loc>
     <lastmod>2019-04-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/tags/django/</loc>
     <lastmod>2019-03-27T22:54:02-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/post/3-inclusion-templates-django/</loc>
     <lastmod>2019-03-27T22:54:02-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/categories/web-development/</loc>
     <lastmod>2019-03-27T22:54:02-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/post/2-turing/</loc>
     <lastmod>2019-03-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/tags/geoffry-hinton/</loc>
     <lastmod>2019-03-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/tags/machine-learning/</loc>
     <lastmod>2019-03-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/categories/noticia/</loc>
     <lastmod>2019-03-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/tags/yann-lecun/</loc>
     <lastmod>2019-03-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/post/estructuras_python_1/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/post/hello_world/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/about/</loc>
     <lastmod>2019-01-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/es/showcase/</loc>
     <lastmod>2019-01-18T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -186,5 +133,4 @@
                 href="https://jinchuika.com/es/showcase/"
                 />
   </url>
-  
 </urlset>

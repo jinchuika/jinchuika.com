@@ -6,11 +6,7 @@
     <description>Recent content on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Luis Carlos Contreras</copyright>
-    <lastBuildDate>Wed, 03 Apr 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jinchuika.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 31 May 2019 07:00:11 -0600</lastBuildDate><atom:link href="https://jinchuika.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What is the new Visual Studio Code Remote feature and how to use it</title>
       <link>https://jinchuika.com/post/2-vs-code-remote/</link>
@@ -49,8 +45,8 @@ Pretty much everything we do in an AI algorithm are matrix operations.</descript
       
       <guid>https://jinchuika.com/about-me/</guid>
       <description>Hi! My name is Luis Carlos Contreras (aka Jinchuika) and I&amp;rsquo;m a software engineer. I created this blog to share some of my experiences with programming.
-I have six years of experience in software development, four of them as a web developer and two as an artificial intelligence engineer. Throughout the years, I&amp;rsquo;ve learnt a bunch of programming languages and technologies including:
- Python (for back-end and machine learning) Linux (server management) Swift and Java (for mobile app development) JavaScript (for hating my life working on front-end) Data Science (because statistics is too mainstream)  Useful links about me:</description>
+I&amp;rsquo;ve been developing software since 2013. Throughout the years, I&amp;rsquo;ve learnt a bunch of programming languages and technologies including:
+ Python (for back-end, scraping, data engineering and machine learning) Linux (for managing server and to become the full owner of my PC) Swift and Java (for mobile app development) JavaScript (you really can&amp;rsquo;t leave without it these days) Data Science (because saying statistics is too mainstream)  Useful links about me:</description>
     </item>
     
     <item>

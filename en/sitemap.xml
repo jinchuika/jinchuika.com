@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://jinchuika.com/categories/</loc>
     <lastmod>2019-05-31T07:00:11-06:00</lastmod>
@@ -15,9 +14,20 @@
                 hreflang="en"
                 href="https://jinchuika.com/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jinchuika.com/</loc>
+    <lastmod>2019-05-31T07:00:11-06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jinchuika.com/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jinchuika.com/"
+                />
+  </url><url>
     <loc>https://jinchuika.com/post/</loc>
     <lastmod>2019-05-31T07:00:11-06:00</lastmod>
     <xhtml:link
@@ -30,19 +40,13 @@
                 hreflang="en"
                 href="https://jinchuika.com/post/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/categories/software/</loc>
     <lastmod>2019-05-31T07:00:11-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/tags/ssh/</loc>
     <lastmod>2019-05-31T07:00:11-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/tags/</loc>
     <lastmod>2019-05-31T07:00:11-06:00</lastmod>
     <xhtml:link
@@ -55,54 +59,25 @@
                 hreflang="en"
                 href="https://jinchuika.com/tags/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/categories/tools/</loc>
     <lastmod>2019-05-31T07:00:11-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/tags/visual-studio-code/</loc>
     <lastmod>2019-05-31T07:00:11-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/post/2-vs-code-remote/</loc>
     <lastmod>2019-05-31T07:00:11-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jinchuika.com/</loc>
-    <lastmod>2019-04-03T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jinchuika.com/es/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jinchuika.com/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/privacy-policy/</loc>
     <lastmod>2019-04-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/post/1-preprocessing-part-1/</loc>
     <lastmod>2019-03-28T22:46:51-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/about-me/</loc>
     <lastmod>2019-01-25T07:00:11-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jinchuika.com/showcase/</loc>
     <lastmod>2019-01-18T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -116,5 +91,4 @@
                 href="https://jinchuika.com/showcase/"
                 />
   </url>
-  
 </urlset>

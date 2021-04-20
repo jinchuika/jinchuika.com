@@ -6,11 +6,7 @@
     <description>Recent content in tutorial on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Luis Carlos Contreras</copyright>
-    <lastBuildDate>Sun, 08 Sep 2019 19:11:07 -0600</lastBuildDate>
-    
-	<atom:link href="https://jinchuika.com/es/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 08 Sep 2019 19:11:07 -0600</lastBuildDate><atom:link href="https://jinchuika.com/es/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cómo crear un Bot de instagram con Python</title>
       <link>https://jinchuika.com/es/post/10-instagram-bot/</link>

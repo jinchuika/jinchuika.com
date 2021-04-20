@@ -6,11 +6,7 @@
     <description>Recent content on Jinchuika</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Luis Carlos Contreras</copyright>
-    <lastBuildDate>Wed, 03 Apr 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jinchuika.com/es/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 08 Sep 2019 19:11:07 -0600</lastBuildDate><atom:link href="https://jinchuika.com/es/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cómo crear un Bot de instagram con Python</title>
       <link>https://jinchuika.com/es/post/10-instagram-bot/</link>
@@ -119,8 +115,8 @@ Geoff Hinton El profesor universitario en la NYU, actualmente de 71 años, fue p
       
       <guid>https://jinchuika.com/es/about/</guid>
       <description>¡Hola! Mi nombre es Luis Carlos Contreras (usualmente Chuik) y soy un ingeniero de software. Creé este blog para compartir algunas de mis experiencias en programación.
-Tengo seis años de experiencia en desarrollo de software, cuatro como desarrollador web y dos como ingeniero de inteligencia artificial. A lo largo de los años, he aprendido muchos lenguajes de programación y tecnologías como:
- Python (para back-end y machine learning) Linux (para administrar servidores) Swift y Java (para desarrollo móvil eventualmente) JavaScript (para no disfrutar la vida) Data Science (porque decir estadística está pasado de moda)  Algunos links sobre mí:</description>
+He estado desarrolando software desde el 2013. A lo largo de los años, he aprendido muchos lenguajes de programación y tecnologías como:
+ Python (para back-end web, scraping, ingeniería de datos y machine learning) Linux (para administrar servidores y para ser dueño de mi PC) Swift y Java (para desarrollo móvil eventualmente) JavaScript (para no disfrutar la vida) Data Science (porque decir estadística está pasado de moda) AWS (porque si no estás en la nube no existes) Terraform / Docker / DevOps (porque ya no puedo poner la excusa de que solo funciona en local)  Algunos links sobre mí:</description>
     </item>
     
     <item>
