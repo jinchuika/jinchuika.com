@@ -227,28 +227,28 @@
 </li>
 </ul>
 <p>Mi primera idea es dejar de tener miles de archivos y convertirlos en uno solo que sea más fácil de manipular. El primer paso es encontrar una forma fácil de listar los arcihvos que debemos convertir. Para ello vamos a usar la función <code>os.listdir()</code>, esto creará una lista con el nombre de todos los archivos contenidos en una carpeta:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
-<span style="color:#66d9ef">print</span>(os<span style="color:#f92672">.</span>listdir(<span style="color:#e6db74">&#39;../output/raw&#39;</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+print(os<span style="color:#f92672">.</span>listdir(<span style="color:#e6db74">&#39;../output/raw&#39;</span>))
 <span style="color:#75715e"># [&#39;5556.json&#39;, &#39;9916.json&#39;, &#39;2503.json&#39;, &#39;9361.json&#39;, &#39;2312.json&#39;,...</span>
 </code></pre></div><p>Ya que tenemos un lista, un simple ciclo será suficiente para ejecutar un procedimiento determinado con cada archivo. Vamos cómo se hace eso:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># importar el paquete para manipular los archivos en el sistema</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># importar el paquete para manipular los archivos en el sistema</span>
 <span style="color:#f92672">import</span> os
 carpeta_entrada <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;../output/raw&#39;</span>
 <span style="color:#75715e"># esta lista contendrá todos los registros de las mesas</span>
 all_data <span style="color:#f92672">=</span> []
 <span style="color:#66d9ef">for</span> file_name <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>listdir(carpeta_entrada):
     <span style="color:#75715e"># leemos el archivo y cargamos su contenido a la variable f</span>
-    <span style="color:#66d9ef">with</span> open(f<span style="color:#e6db74">&#39;{carpeta_entrada}/{file_name}&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> f:
+    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>carpeta_entrada<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>file_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> f:
         <span style="color:#75715e"># convertimos el contenido del archivo json en una estructura de python</span>
         <span style="color:#75715e"># después, agregamos ese contenido a la lista `all_data`</span>
         all_data<span style="color:#f92672">.</span>append(json<span style="color:#f92672">.</span>load(f))
 </code></pre></div><p>¡Y ya está! Ahora nuestra variable <code>all_data</code> contiene todos los registros JSON en una sola estructura. Lo único que hace falta es exportarla a un solo archivo.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># crear un archivo unificado que contenga los datos</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># crear un archivo unificado que contenga los datos</span>
 carpeta_salida <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;../output/final/resultados.json&#39;</span>
 <span style="color:#66d9ef">with</span> open(carpeta_salida, <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> f:
-    json<span style="color:#f92672">.</span>dump(all_data, f, ensure_ascii<span style="color:#f92672">=</span>False)
+    json<span style="color:#f92672">.</span>dump(all_data, f, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
 </code></pre></div><p>Hasta aquí todo bien, tenemos un único archivo JSON que podemos utilizar para analizar los datos&hellip; Pero honestamente, será difícil estar descifrando la estructura de los datos cada vez que querramos utilizarlos. Así que mejor vamos a convertir los resultados en un archivo CSV, algo que cualquier persona pueda abrir en Excel.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Crear datos de elección para presidente</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Crear datos de elección para presidente</span>
 structured_data <span style="color:#f92672">=</span> []
 <span style="color:#75715e"># vamos a recorrer cada una de las mesas</span>
 <span style="color:#66d9ef">for</span> mesa <span style="color:#f92672">in</span> all_data:
@@ -266,14 +266,14 @@ structured_data <span style="color:#f92672">=</span> []
             <span style="color:#75715e"># estas columnas iran como votos_PARTIDO1, votos_PARTIDO2, etc.</span>
             <span style="color:#66d9ef">for</span> votos <span style="color:#f92672">in</span> mesa[<span style="color:#e6db74">&#39;TE&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;VOTOSTE0&#39;</span>]:
                 <span style="color:#75715e"># este es un truco simple para tomar los datos del partido y adjuntar el &#34;voto_&#34;</span>
-                n_rec[f<span style="color:#e6db74">&#34;voto_{votos[&#39;D&#39;].replace(&#39; &#39;, &#39;_&#39;)}&#34;</span>] <span style="color:#f92672">=</span> int(votos[<span style="color:#e6db74">&#39;V&#39;</span>])
+                n_rec[<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;voto_</span><span style="color:#e6db74">{</span>votos[<span style="color:#e6db74">&#39;D&#39;</span>]<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39; &#39;</span>, <span style="color:#e6db74">&#39;_&#39;</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>] <span style="color:#f92672">=</span> int(votos[<span style="color:#e6db74">&#39;V&#39;</span>])
     <span style="color:#75715e"># finalmente, agregamos el diccionario a nuestra lista que contiene todos los datos estructurados</span>
     structured_data<span style="color:#f92672">.</span>append(n_rec)
 </code></pre></div><p>¡Y listo! Ahora tenemos una <a href="https://jinchuika.com/es/post/estructuras_python_1/">lista de diccionarios</a> que contiene todos los registros de manera estructurada. Como quiero exportarlos en un archivo CSV, vamos a utilizar la librería Pandas para convertir esta estructura en un DataFrame y generar los resultados.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># convertir la lista en un dataframe de pandas</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># convertir la lista en un dataframe de pandas</span>
 main_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(structured_data)
 <span style="color:#75715e"># exportar el dataframe en un archivo</span>
-main_df<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;../output/final/resultados.csv&#39;</span>, index<span style="color:#f92672">=</span>None)
+main_df<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;../output/final/resultados.csv&#39;</span>, index<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
 </code></pre></div><p>Ya llevamos una de los cuatro tipos de elecciones (en Guatemala hay cinco, pero una de ellas no sirve para nada, así que no la cubriré). Las elecciones de diputados por listado nacional siguen la misma mecánica que las presidenciables, por lo que no agregaré información al respecto. Únicamente debes cambiar el <code>VOTOSTE0</code> por un <code>VOTOSTE1</code>, cambiar los <code>0</code> por <code>1</code> y volver a ejecutar la parte de código de arriba. Así que ya tenemos dos de los cuatro tipos. Ahora vienen los más interesantes: alcaldes y diputados locales.</p>
 <p>En Guatemala existen 22 departamentos (regiones), divididos en un total de 340 municipios (ciudades). Cada municipio elige a un alcalde y cada departamento a una cantidad variable de diputados. No todos los partidos políticos que participaron en la presidencia participan en estos dos tipos de elecciones, por lo que seguir el método anterior sería poco práctico. Además, ya que las elecciones son locales, tener un archivo gigante con todos los resultados quizás no sería el resultado ideal. En este caso, creo que prefier crear un archivo por cada municipio y uno por cada departamento. Nuestro objetivo entonces es:</p>
 <ul>
@@ -281,7 +281,7 @@ main_df<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#
 <li>Separar los datos totales en 23 archivos, uno para cada departamento (la ciudad capital se cuenta como un departamento separado).</li>
 </ul>
 <p>Ya que el procedimiento será muy similar, explicaré únicamente el más complejo: el de municipios. Empezaré haciendo una pequeña diferencia respecto a los métodos anteriores, en lugar de tener una lista ordenada de registros, crearé un diccionario donde cada clave contenga un set de datos por municipio. Convenientemente, cada registro de mesa tiene un código de departamento y municipio, así que lo usaré para identificar los sets de datos. Para ello utilizaré un <code>defaultdict</code>, una estructura especial de la librería <code>collections</code> de Python. Esta estructura me permite generar un diccionario con un tipo de dato predefinido para cada registro; en este caso será una lista. Mi objetivo es obtener algo así:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">diccionario_municipios <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">diccionario_municipios <span style="color:#f92672">=</span> {
     <span style="color:#75715e"># set de datos de municipio 10-13</span>
     <span style="color:#e6db74">&#39;10-13&#39;</span>: [
         <span style="color:#75715e"># datos mesa 1,</span>
@@ -294,7 +294,7 @@ main_df<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#
     ],
 }
 </code></pre></div><p>Una vez obtenida esta estructura, exportaré cada set de datos a un archivo para poder finalizar el procesamiento.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># carpeta de salida</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># carpeta de salida</span>
 output_folder <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;../output/final/municipios&#39;</span>
 <span style="color:#75715e"># estructura que contiene la información de los registros de municipalidades</span>
 muni_dict <span style="color:#f92672">=</span> defaultdict(list)
@@ -309,7 +309,7 @@ muni_dict <span style="color:#f92672">=</span> defaultdict(list)
                 n_rec[record] <span style="color:#f92672">=</span> mesa[<span style="color:#e6db74">&#39;TE&#39;</span>][<span style="color:#ae81ff">3</span>][record]
             <span style="color:#66d9ef">else</span>:
                 <span style="color:#66d9ef">for</span> votos <span style="color:#f92672">in</span> mesa[<span style="color:#e6db74">&#39;TE&#39;</span>][<span style="color:#ae81ff">3</span>][<span style="color:#e6db74">&#39;VOTOSTE3&#39;</span>]:
-                    n_rec[f<span style="color:#e6db74">&#34;voto_{votos[&#39;D&#39;].replace(&#39; &#39;, &#39;_&#39;)}&#34;</span>] <span style="color:#f92672">=</span> int(votos[<span style="color:#e6db74">&#39;V&#39;</span>])
+                    n_rec[<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;voto_</span><span style="color:#e6db74">{</span>votos[<span style="color:#e6db74">&#39;D&#39;</span>]<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39; &#39;</span>, <span style="color:#e6db74">&#39;_&#39;</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>] <span style="color:#f92672">=</span> int(votos[<span style="color:#e6db74">&#39;V&#39;</span>])
         <span style="color:#75715e"># el codigo del set de datos es DEPARTAMENTO-MUNICIPIO</span>
         codigo_municipio <span style="color:#f92672">=</span> {mesa[<span style="color:#e6db74">&#34;TE&#34;</span>][<span style="color:#ae81ff">3</span>][<span style="color:#e6db74">&#34;DEP&#34;</span>]} <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#f92672">+</span> mesa[<span style="color:#e6db74">&#34;TE&#34;</span>][<span style="color:#ae81ff">3</span>][<span style="color:#e6db74">&#34;MUN&#34;</span>]
         <span style="color:#75715e"># agregamos los datos de la mesa electoral para la lista contenida en ese código</span>
@@ -322,7 +322,7 @@ muni_dict <span style="color:#f92672">=</span> defaultdict(list)
 <span style="color:#75715e"># en lugar de exportar un solo archivo, recorremos la lista y exportamos un archivo por cada registro</span>
 <span style="color:#66d9ef">for</span> municipio <span style="color:#f92672">in</span> muni_dict<span style="color:#f92672">.</span>keys():
     <span style="color:#75715e"># exportar cada registro a un archivo individual</span>
-    pd<span style="color:#f92672">.</span>DataFrame(muni_dict[municipio])<span style="color:#f92672">.</span>to_csv(f<span style="color:#e6db74">&#39;{output_folder}/{municipio}.csv&#39;</span>, index<span style="color:#f92672">=</span>None)    
+    pd<span style="color:#f92672">.</span>DataFrame(muni_dict[municipio])<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>output_folder<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>municipio<span style="color:#e6db74">}</span><span style="color:#e6db74">.csv&#39;</span>, index<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)    
 </code></pre></div><p>¡Y con eso terminamos! Ahora, si inspeccionamos la carpeta, veremos que tenemos los 340 archivos generados. Nuevamente, el procedimiento es el mismo para los diputados de distrito. Estoy seguro de que si llegaste hasta aquí tienes puedes modificar el código y adaptarlo a tus necesidades. Puedes ver el código terminado y completo en <a href="https://github.com/jinchuika/tse-scraper/blob/master/data-processing/main_processor.ipynb">el repositorio de GitHub</a>.</p>
 
   <img src="1.png"  alt="Resultados de alcaldías de TSE"  class="center"  style="border-radius: 8px;"  />

@@ -226,9 +226,9 @@
 <li>WSL: get a Linux development environment inside of a Windows machine using the Windows Subsystem for Linux.</li>
 </ul>
 <p>I will focus on the SSH one, since is the easier to get rolling and you won&rsquo;t need to change or install anything extra. You just need an SSH client (which all Linux and Mac already have, and is very easy to <a href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse">install on Windows</a>) and an authentication key. You can create that key by typing</p>
-<pre><code>ssh-keygen -t rsa -b 4096
+<pre tabindex="0"><code>ssh-keygen -t rsa -b 4096
 </code></pre><p>This will ask you to enter the file location for the key. I will use the default one, but <a href="https://code.visualstudio.com/docs/remote/troubleshooting#_improving-your-security-with-a-dedicated-key">you can change it</a> in order to make one file for each server key. It goes like:</p>
-<pre><code>Enter file in which to save the key (/home/chuik/.ssh/id_rsa):
+<pre tabindex="0"><code>Enter file in which to save the key (/home/chuik/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
 Your identification has been saved in id_rsa.
@@ -237,7 +237,7 @@ The key fingerprint is:
 SHA256:v/YyFE2yVvnbj83BQncNydgiTFAkvqxP4jveDsrm9Lc chuik@chuik-xps
 The key's randomart image is:
 </code></pre><p>Now, you will need to copy your key with your cedentials on to the server. You can do it with <code>ssh-copy-id your-username@your-server-host-or-ip</code>. In my case, it was something like:</p>
-<pre><code>$ ssh-copy-id jinchuika@10.10.10.248
+<pre tabindex="0"><code>$ ssh-copy-id jinchuika@10.10.10.248
 jinchuika@10.10.10.248's password: &lt;--- TYPE YOUR PASSWORD WHEN ASKED
 
 Number of key(s) added: 1
@@ -250,7 +250,7 @@ and check to make sure that only the key(s) you wanted were added.
 
 
 <p>In the configuration file, enter a new register for the host you&rsquo;re connecting to. For example, in my case it was:</p>
-<pre><code>Host MyServer
+<pre tabindex="0"><code>Host MyServer
 	HostName 10.10.10.248
 	User jinchuika
 </code></pre>

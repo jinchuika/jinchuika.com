@@ -216,7 +216,7 @@
 </blockquote>
 <p>Hace unos días empecé a sentir que el código en uno de los componentes principales de mi sistema se estaba saliendo de control. Tengo un modelo al que hacen referencia muchos otros, así que hice una página donde se pudiera ver toda la información relacionada a él. De pronto caí en cuenta de que el template estaba creciendo muchísimo más allá de lo que me habría gustado. Estaba dedicando mucho tiempo a editar cosas que no eran de mi entidad principal, y encontrar dónde estaban esas cosas era una tarea colosal. La solución que encontré fue utilizar el método para incluir templates en Django, y así logré ordenar todo de nuevo. En vista de lo aprendido, no pude sino compartir mi mecánica. Así que vamos a verlo.</p>
 <p>Primero vamos a ver cómo se estructura el proyecto de prueba. Para ello vamos a crear una entidad principal, que tenga otras dos relaciones:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># models.py</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># models.py</span>
 <span style="color:#f92672">from</span> django.db <span style="color:#f92672">import</span> models
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Post</span>(models<span style="color:#f92672">.</span>Model):
@@ -229,7 +229,7 @@
     usuario <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>)
     mensaje <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>TextField()
 </code></pre></div><p>Voy a hacer una vista simple para mostrar un objeto de la entidad principal.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># views.py</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># views.py</span>
 <span style="color:#f92672">from</span> .models <span style="color:#f92672">import</span> Post
 <span style="color:#f92672">from</span> django.views.generic <span style="color:#f92672">import</span> DetailView
 
@@ -237,7 +237,7 @@
     model <span style="color:#f92672">=</span> Post
     template_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;post_detail.html&#39;</span>
 </code></pre></div><p>Ahora lo importante, el template. Al final del post muestro los comentarios que se han hecho para ese post en particular. Es un recorrido simple utilizando el <code>related_name</code> del modelo.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">article</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">article</span>&gt;
     &lt;<span style="color:#f92672">h1</span>&gt;{{ post.titulo }}&lt;/<span style="color:#f92672">h1</span>&gt;
     {{ post.cuerpo|linebreaks }}
     &lt;<span style="color:#f92672">h3</span>&gt;Comentarios&lt;/<span style="color:#f92672">h3</span>&gt;
@@ -250,26 +250,26 @@
 &lt;/<span style="color:#f92672">article</span>&gt;
 </code></pre></div><p>Hast ahí todo bien. Pero ahora imaginemos que las clases para el comentario fueran mucho más elaboradas. Cosas como el link al perfil del usuario, mostrar su foto de perfil, permitir algo de markdown o texto enriquecido en los comentarios; todo sería un añadido bastante grande al template del post. Además, ¿qué pasaría luego si quisiera utilizar el mismo formato para comentarios en otro lugar que no fueran un post? Tendría que copiar y pegar esta parte de código en cada uno de esos templates; sin mencionar que al hacer un cambio tendría que remplazar todos. Para solucionarlo, utilizaré entonces la <strong>inclusión de templates</strong> de Django.</p>
 <p>Para ello voy a crear un nuevo template, donde encapsularé el comentario. Veamos el contenido de <code>coment_template.html</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h4</span>&gt;{{ comentario.usuario }}&lt;/<span style="color:#f92672">h4</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h4</span>&gt;{{ comentario.usuario }}&lt;/<span style="color:#f92672">h4</span>&gt;
 {{ comentario.mensaje|linebreaks }}
 &lt;<span style="color:#f92672">h6</span>&gt;Enviado el {{ comentario.fecha }}&lt;/<span style="color:#f92672">h6</span>&gt;
 &lt;<span style="color:#f92672">hr</span> /&gt;
 </code></pre></div><p>Ahora, en el template principal del post, voy a incluir el nuevo template en lugar de escribir todo el código.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h3</span>&gt;Comentarios&lt;/<span style="color:#f92672">h3</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h3</span>&gt;Comentarios&lt;/<span style="color:#f92672">h3</span>&gt;
 {% for comentario in post.comentarios.all %}
     {% include &#34;coment_template.html&#34; with comentario=comentario %}
 {% endfor %}
 </code></pre></div><p>La página generada es exactamente igual, pero ahora puedo permitirme hacer todas las modificaciones que desee en el template del comentario y reutilizarlo cuando quiera.</p>
 <p>Ahora puedo permitirme tener comentarios anidados, para permitir a los usuarios responderse entre sí sin necesidad de hacer demasiados cambios.</p>
 <p>Vamos a modificar el modelo:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Comentario</span>(models<span style="color:#f92672">.</span>Model):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Comentario</span>(models<span style="color:#f92672">.</span>Model):
     post <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(Post, related_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;comentarios&#39;</span>)
-    padre <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(<span style="color:#e6db74">&#34;self&#34;</span>, related_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hijos&#39;</span>, null<span style="color:#f92672">=</span>True)
+    padre <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(<span style="color:#e6db74">&#34;self&#34;</span>, related_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hijos&#39;</span>, null<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
     fecha <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>DateField()
     usuario <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>)
     mensaje <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>TextField()
 </code></pre></div><p>Y ahora el template del comentario:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h4</span>&gt;{{ comentario.usuario }}&lt;/<span style="color:#f92672">h4</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h4</span>&gt;{{ comentario.usuario }}&lt;/<span style="color:#f92672">h4</span>&gt;
 {{ comentario.mensaje|linebreaks }}
 &lt;<span style="color:#f92672">h6</span>&gt;Enviado el {{ comentario.fecha }}&lt;/<span style="color:#f92672">h6</span>&gt;
 {% if comentario.hijos.count &gt; 0 %}
@@ -282,7 +282,7 @@
     &lt;/<span style="color:#f92672">ul</span>&gt;
 {% endif %}
 </code></pre></div><p>Y ahora puedo dejar los visitantes de mi blog se maten unos a otros en mis comentarios :)</p>
-<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     </div>
     

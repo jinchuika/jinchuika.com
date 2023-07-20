@@ -241,40 +241,40 @@
 <h3 id="creación-del-script-de-python">Creación del script de Python</h3>
 <p>Empecé por utilizar un ambiente virtual de Python manejado por Pipenv. Si no tienes experiencia en ello, su página web es una muy buena referencia del uso. No necesitaremos ninguna otra dependencia externa para descargar los datos.</p>
 <p>Como mostré anteriormente, realizar una solicitud es bastante simple:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># importar el paquete</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># importar el paquete</span>
 <span style="color:#f92672">import</span> requests
 <span style="color:#75715e"># crear el objeto de la solicitud</span>
 r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)
 <span style="color:#75715e"># convertir el json de la respuesta en una estructura de Python como listas o diccionarios</span>
 r<span style="color:#f92672">.</span>json()
 </code></pre></div><p>Utilizando este código, es bastante sencillo crear una función que me permita obtener los datos de una mesa específica:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://resultados2019.tse.org.gt/201901/api.php&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://resultados2019.tse.org.gt/201901/api.php&#39;</span>
 token <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">query_api</span>(num):
     params <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;token&#39;</span>: token, <span style="color:#e6db74">&#39;mesa&#39;</span>: num, <span style="color:#e6db74">&#39;vista&#39;</span>: <span style="color:#e6db74">&#39;MESA&#39;</span>}
-    query_url <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#39;{url}?token={params[&#34;token&#34;]}&amp;mesa={params[&#34;mesa&#34;]}&amp;vista={params[&#34;vista&#34;]}&#39;</span>
+    query_url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>url<span style="color:#e6db74">}</span><span style="color:#e6db74">?token=</span><span style="color:#e6db74">{</span>params[<span style="color:#e6db74">&#34;token&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;mesa=</span><span style="color:#e6db74">{</span>params[<span style="color:#e6db74">&#34;mesa&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;vista=</span><span style="color:#e6db74">{</span>params[<span style="color:#e6db74">&#34;vista&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
     r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url<span style="color:#f92672">=</span>query_url, data<span style="color:#f92672">=</span>params)
     data <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>json()
 </code></pre></div><p>Algo que he aprendido tras varios años de hacer web scraping, es que no puedes confiar en que una solicitud larga se mantenga abierta por mucho tiempo. Debes guardar tu trabajo seguido por si hay algún problema con el servidor a donde te conectes. Por esta razón, voy a generar un archivo único por cada mesa. Si el proceso falla en la mesa número 15321, al menos tendré el resto almacenado. Para ello, vamos a exportar los datos con:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> json
 
-<span style="color:#66d9ef">with</span> open(f<span style="color:#e6db74">&#39;carpeta_data/{num}.json&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>) <span style="color:#66d9ef">as</span> outfile:
-    json<span style="color:#f92672">.</span>dump(data, outfile, ensure_ascii<span style="color:#f92672">=</span>False, indent<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;carpeta_data/</span><span style="color:#e6db74">{</span>num<span style="color:#e6db74">}</span><span style="color:#e6db74">.json&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>) <span style="color:#66d9ef">as</span> outfile:
+    json<span style="color:#f92672">.</span>dump(data, outfile, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, indent<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
 </code></pre></div><p>Podríamos dejarlo hasta ahí, pero en serio no confío mucho que digamos en mi gobierno, por lo que decidí que también sería bueno descargar las imágenes contenidas en la URL de cada registro. Para ello, vamos a utilizar:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> shutil
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> shutil
 <span style="color:#75715e"># recorremos cada uno de los tipos de elección en esa mesa</span>
 <span style="color:#66d9ef">for</span> i, te <span style="color:#f92672">in</span> enumerate(data[<span style="color:#e6db74">&#39;TE&#39;</span>]):
-    folder <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#39;carpeta_imagenes/{i}&#39;</span>
+    folder <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;carpeta_imagenes/</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
     <span style="color:#75715e"># obtener el tipo de extensión de la imagen</span>
     extension <span style="color:#f92672">=</span> te[<span style="color:#e6db74">&#39;IMGSRC&#39;</span>]<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;.&#39;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
     <span style="color:#75715e"># consultar la URL de la imagen</span>
-    response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(te[<span style="color:#e6db74">&#39;IMGSRC&#39;</span>], stream<span style="color:#f92672">=</span>True)
-    <span style="color:#66d9ef">with</span> open(f<span style="color:#e6db74">&#39;carpeta_imagenes/{i}/{num}.{extension}&#39;</span>, <span style="color:#e6db74">&#39;wb&#39;</span>) <span style="color:#66d9ef">as</span> out_file:
+    response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(te[<span style="color:#e6db74">&#39;IMGSRC&#39;</span>], stream<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;carpeta_imagenes/</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>num<span style="color:#e6db74">}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">{</span>extension<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74">&#39;wb&#39;</span>) <span style="color:#66d9ef">as</span> out_file:
         shutil<span style="color:#f92672">.</span>copyfileobj(response<span style="color:#f92672">.</span>raw, out_file)
     <span style="color:#66d9ef">del</span> response
 </code></pre></div><p>Por lo tanto, el método final queda de la siguiente manera:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://resultados2019.tse.org.gt/201901/api.php&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://resultados2019.tse.org.gt/201901/api.php&#39;</span>
 
 <span style="color:#75715e"># obtén tu propio token desde la página del TSE</span>
 token <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
@@ -287,30 +287,30 @@ output_folder_images <span style="color:#f92672">=</span> <span style="color:#e6
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">query_api</span>(num):
     params <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;token&#39;</span>: token, <span style="color:#e6db74">&#39;mesa&#39;</span>: num, <span style="color:#e6db74">&#39;vista&#39;</span>: <span style="color:#e6db74">&#39;MESA&#39;</span>}
-    query_url <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#39;{url}?token={params[&#34;token&#34;]}&amp;mesa={params[&#34;mesa&#34;]}&amp;vista={params[&#34;vista&#34;]}&#39;</span>
-    <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#39;Consulting... : {num}&#39;</span>)
+    query_url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>url<span style="color:#e6db74">}</span><span style="color:#e6db74">?token=</span><span style="color:#e6db74">{</span>params[<span style="color:#e6db74">&#34;token&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;mesa=</span><span style="color:#e6db74">{</span>params[<span style="color:#e6db74">&#34;mesa&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;vista=</span><span style="color:#e6db74">{</span>params[<span style="color:#e6db74">&#34;vista&#34;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Consulting... : </span><span style="color:#e6db74">{</span>num<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
     r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url<span style="color:#f92672">=</span>query_url, data<span style="color:#f92672">=</span>params)
     data <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>json()
-    <span style="color:#66d9ef">with</span> open(f<span style="color:#e6db74">&#39;{output_folder_raw}/{num}.json&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>) <span style="color:#66d9ef">as</span> outfile:
-        json<span style="color:#f92672">.</span>dump(data, outfile, ensure_ascii<span style="color:#f92672">=</span>False, indent<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>output_folder_raw<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>num<span style="color:#e6db74">}</span><span style="color:#e6db74">.json&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>) <span style="color:#66d9ef">as</span> outfile:
+        json<span style="color:#f92672">.</span>dump(data, outfile, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, indent<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
     <span style="color:#66d9ef">try</span>:
         <span style="color:#66d9ef">for</span> i, te <span style="color:#f92672">in</span> enumerate(data[<span style="color:#e6db74">&#39;TE&#39;</span>]):
-            folder <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#39;{output_folder_images}/{i}&#39;</span>
+            folder <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>output_folder_images<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
             extension <span style="color:#f92672">=</span> te[<span style="color:#e6db74">&#39;IMGSRC&#39;</span>]<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;.&#39;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
             <span style="color:#75715e"># puse esta validacion para consultar unicamente si el archivo no existe</span>
-            <span style="color:#66d9ef">if</span> f<span style="color:#e6db74">&#39;{num}.{extension}&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>listdir(folder):
-                response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(te[<span style="color:#e6db74">&#39;IMGSRC&#39;</span>], stream<span style="color:#f92672">=</span>True)
-                <span style="color:#66d9ef">with</span> open(f<span style="color:#e6db74">&#39;{output_folder_images}/{i}/{num}.{extension}&#39;</span>, <span style="color:#e6db74">&#39;wb&#39;</span>) <span style="color:#66d9ef">as</span> out_file:
+            <span style="color:#66d9ef">if</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>num<span style="color:#e6db74">}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">{</span>extension<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>listdir(folder):
+                response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(te[<span style="color:#e6db74">&#39;IMGSRC&#39;</span>], stream<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+                <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>output_folder_images<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>num<span style="color:#e6db74">}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">{</span>extension<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74">&#39;wb&#39;</span>) <span style="color:#66d9ef">as</span> out_file:
                     shutil<span style="color:#f92672">.</span>copyfileobj(response<span style="color:#f92672">.</span>raw, out_file)
                 <span style="color:#66d9ef">del</span> response
     <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">KeyError</span>:
         <span style="color:#66d9ef">pass</span>
-    <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#39;Done with {num}&#39;</span>)
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Done with </span><span style="color:#e6db74">{</span>num<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
 </code></pre></div><p>Hasta aquí todo bastante bien, podemos ejecutar esta función dentro de un ciclo para realizar la consulta de todas las mesas. Sin embargo, este proceso tardaría mucho tiempo puesto que se debería esperar a que cada mesa descargue sus datos para empezar con la siguiente. Para evitar este inconveniente utilizaremos la siempre útil ejecución en paralelo. Ya que explicar cómo funciona este método es algo que supera el alcance de este post, simplemente te explicaré cómo funcionan las partes clave:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># la función que contiene la secuencia de órdenes asíncronas</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># la función que contiene la secuencia de órdenes asíncronas</span>
 
 
-async <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
     starting <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
     ending <span style="color:#f92672">=</span> <span style="color:#ae81ff">21100</span>
     <span style="color:#75715e"># aquí le decimos que queremos utilizar 8 hilos al mismo tiempo</span>
@@ -327,7 +327,7 @@ async <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</s
             <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(starting, ending)
         ]
         <span style="color:#75715e"># ejecutamos la función en un ciclo sin esperar al resultado de cada repetición para continuar</span>
-        <span style="color:#66d9ef">for</span> response <span style="color:#f92672">in</span> await asyncio<span style="color:#f92672">.</span>gather(<span style="color:#f92672">*</span>futures):
+        <span style="color:#66d9ef">for</span> response <span style="color:#f92672">in</span> <span style="color:#66d9ef">await</span> asyncio<span style="color:#f92672">.</span>gather(<span style="color:#f92672">*</span>futures):
             <span style="color:#66d9ef">pass</span>
 
 

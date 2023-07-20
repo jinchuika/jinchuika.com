@@ -219,7 +219,7 @@ class Vehiculo: nombre = &amp;#39;&amp;#39; llantas = 0 motor = 0 encendido = &a
 <!-- raw HTML omitted -->
 <h2 id="código-fuente">Código fuente</h2>
 <p>A continuación puedes encontrar el código utilizado en este video:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Vehiculo</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Vehiculo</span>:
     nombre <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
     llantas <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
     motor <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
@@ -239,7 +239,7 @@ class Vehiculo: nombre = &amp;#39;&amp;#39; llantas = 0 motor = 0 encendido = &a
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Auto</span>(Vehiculo):
     puertas <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    puertas_abiertas <span style="color:#f92672">=</span> False
+    puertas_abiertas <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
 
     <span style="color:#66d9ef">def</span> __init__(self, nombre, llantas, motor, puertas):
         self<span style="color:#f92672">.</span>nombre <span style="color:#f92672">=</span> nombre
@@ -248,10 +248,10 @@ class Vehiculo: nombre = &amp;#39;&amp;#39; llantas = 0 motor = 0 encendido = &a
         self<span style="color:#f92672">.</span>puertas <span style="color:#f92672">=</span> puertas
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">abrir_puertas</span>(self):
-        self<span style="color:#f92672">.</span>puertas_abiertas <span style="color:#f92672">=</span> True
+        self<span style="color:#f92672">.</span>puertas_abiertas <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cerrar_puertas</span>(self):
-        self<span style="color:#f92672">.</span>puertas_abiertas <span style="color:#f92672">=</span> False
+        self<span style="color:#f92672">.</span>puertas_abiertas <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
 
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Moto</span>(Vehiculo):
@@ -274,7 +274,7 @@ class Vehiculo: nombre = &amp;#39;&amp;#39; llantas = 0 motor = 0 encendido = &a
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">abordar_pasajeros</span>(self, pasajeros_abordando):
         nuevos_pasajeros <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>pasajeros <span style="color:#f92672">+</span> pasajeros_abordando
         <span style="color:#66d9ef">if</span> nuevos_pasajeros <span style="color:#f92672">&gt;</span> self<span style="color:#f92672">.</span>max_pasajeros:
-            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;El bus ya está lleno&#34;</span>)
+            print(<span style="color:#e6db74">&#34;El bus ya está lleno&#34;</span>)
         <span style="color:#66d9ef">else</span>:
             self<span style="color:#f92672">.</span>pasajeros <span style="color:#f92672">=</span> nuevos_pasajeros
             self<span style="color:#f92672">.</span>pasaje_recaudado <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>pasaje_recaudado <span style="color:#f92672">+</span> (pasajeros_abordando <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>tarifa)
@@ -282,7 +282,7 @@ class Vehiculo: nombre = &amp;#39;&amp;#39; llantas = 0 motor = 0 encendido = &a
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">desbordar_pasajeros</span>(self, pasajeros_desbordando):
         nuevos_pasajeros <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>pasajeros <span style="color:#f92672">+</span> pasajeros_desbordando
         <span style="color:#66d9ef">if</span> nuevos_pasajeros <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>:
-            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;El bus ya está vacío&#34;</span>)
+            print(<span style="color:#e6db74">&#34;El bus ya está vacío&#34;</span>)
         <span style="color:#66d9ef">else</span>:
             self<span style="color:#f92672">.</span>pasajeros <span style="color:#f92672">=</span> nuevos_pasajeros
 

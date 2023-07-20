@@ -78,8 +78,8 @@
 <meta property="og:description" content="Existen diversas formas de almacenar los datos a utilizar en un algoritmo inteligente. En este post aprenderemos las estructuras de datos más básicas de Python para almacenar informacion, enfocándonos en crear un algoritmo inteligente." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jinchuika.com/es/post/estructuras_python_1/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-03-26T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2019-03-26T00:00:00&#43;00:00" /><meta property="og:site_name" content="Jinchuika" />
+<meta property="article:published_time" content="2019-03-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-03-26T00:00:00+00:00" /><meta property="og:site_name" content="Jinchuika" />
 
 
 
@@ -228,26 +228,26 @@
 <p>En este caso, <strong>la matriz es una estructura de 2 dimensiones</strong>, pues tiene filas y columnas. Esta será la representación más común a utilizar durante esta serie. Para comprender cómo crear una matriz de dos dimensiones, empecemos creando estructuras de una dimensión.</p>
 <h2 id="listas">Listas</h2>
 <p>Una lista (<code>list</code>) es una variable que almacena datos de forma <strong>secuencial</strong>; es decir, importa el <em>orden</em> en el que se almacenan los elementos.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Ejemplo de lista</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Ejemplo de lista</span>
 
 mi_list <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Gato&#39;</span>, <span style="color:#e6db74">&#39;Perro&#39;</span>, <span style="color:#e6db74">&#39;Caballo&#39;</span>, <span style="color:#e6db74">&#39;Conejo&#39;</span>, <span style="color:#e6db74">&#39;Cangrejo&#39;</span>,<span style="color:#e6db74">&#39;asd&#39;</span>]
-<span style="color:#66d9ef">print</span>(mi_list)
+print(mi_list)
 </code></pre></div><p><em>Resultado</em>:</p>
 <pre><code>['Gato', 'Perro', 'Caballo', 'Conejo', 'Cangrejo']
 </code></pre>
 <hr>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Se accede a cada dato en la lista utilizando el índice (INDEX)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Se accede a cada dato en la lista utilizando el índice (INDEX)</span>
 <span style="color:#75715e"># en python, las posiciones se cuentan desde 0</span>
-<span style="color:#66d9ef">print</span>(mi_list[<span style="color:#ae81ff">2</span>])
-<span style="color:#66d9ef">print</span>(mi_list[<span style="color:#ae81ff">3</span>])
+print(mi_list[<span style="color:#ae81ff">2</span>])
+print(mi_list[<span style="color:#ae81ff">3</span>])
 </code></pre></div><p><em>Resultado</em>:</p>
 <pre><code>Caballo
 Conejo
 </code></pre>
 <hr>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Al consultar un índice fuera del rango, obtendremos un IndexError</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Al consultar un índice fuera del rango, obtendremos un IndexError</span>
 <span style="color:#75715e"># Un IndexError siempre indica que el problema se relaciona a una lista</span>
-<span style="color:#66d9ef">print</span>(mi_list[<span style="color:#ae81ff">5</span>])
+print(mi_list[<span style="color:#ae81ff">5</span>])
 </code></pre></div><p><em>Resultado</em>:</p>
 <pre><code>---------------------------------------------------------------------------
 
@@ -263,28 +263,28 @@ IndexError: list index out of range
 </code></pre>
 <h2 id="diccionarios">Diccionarios</h2>
 <p>Un diccionario (<code>dict</code>) almacena datos utilizando claves (<code>keys</code>), donde cada clave tiene un nombre específico para identificar a cada valor.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Ejemplo de diccionario</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Ejemplo de diccionario</span>
 mi_dict <span style="color:#f92672">=</span> {
     <span style="color:#e6db74">&#39;edad&#39;</span>: <span style="color:#ae81ff">19</span>,
     <span style="color:#e6db74">&#39;nombre&#39;</span>: <span style="color:#e6db74">&#39;Juan&#39;</span>,
     <span style="color:#e6db74">&#39;altura&#39;</span>: <span style="color:#ae81ff">1.75</span>
 }
-<span style="color:#66d9ef">print</span>(mi_dict)
+print(mi_dict)
 </code></pre></div><p><em>Resultado</em>:</p>
 <pre><code>{'edad': 19, 'nombre': 'Juan', 'altura': 1.75}
 </code></pre>
 <hr>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Se accede a cada dato utilizando la llave</span>
-<span style="color:#66d9ef">print</span>(mi_dict[<span style="color:#e6db74">&#39;nombre&#39;</span>])
-<span style="color:#66d9ef">print</span>(mi_dict[<span style="color:#e6db74">&#39;edad&#39;</span>])
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Se accede a cada dato utilizando la llave</span>
+print(mi_dict[<span style="color:#e6db74">&#39;nombre&#39;</span>])
+print(mi_dict[<span style="color:#e6db74">&#39;edad&#39;</span>])
 </code></pre></div><p><em>Resultado</em>:</p>
 <pre><code>Juan
 19
 </code></pre>
 <hr>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Al consultar una llave que no existe en el diccionario, obtendremos un KeyError</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Al consultar una llave que no existe en el diccionario, obtendremos un KeyError</span>
 <span style="color:#75715e"># Un KeyError siempre indica que el problema se relaciona a un diccionario</span>
-<span style="color:#66d9ef">print</span>(mi_dict[<span style="color:#e6db74">&#39;peso&#39;</span>])
+print(mi_dict[<span style="color:#e6db74">&#39;peso&#39;</span>])
 </code></pre></div><p><em>Resultado</em>:</p>
 <pre><code>---------------------------------------------------------------------------
 
@@ -300,22 +300,22 @@ KeyError: 'peso'
 </code></pre>
 <h3 id="creando-variables-de-múltiples-dimensiones">Creando variables de múltiples dimensiones</h3>
 <p>Al combinar las estructuras de datos de una dimensión, podemos generar estructuras de más de una dimensión.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Las estructuras de datos pueden ser combinadas</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Las estructuras de datos pueden ser combinadas</span>
 <span style="color:#75715e"># por ejemplo, un diccionario de listas</span>
 mi_comb <span style="color:#f92672">=</span> {
     <span style="color:#e6db74">&#39;nombres&#39;</span>: [<span style="color:#e6db74">&#39;Juan&#39;</span>, <span style="color:#e6db74">&#39;Pedro&#39;</span>, <span style="color:#e6db74">&#39;Maria&#39;</span>],
     <span style="color:#e6db74">&#39;edades&#39;</span>: [<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>]
 }
-<span style="color:#66d9ef">print</span>(mi_comb[<span style="color:#e6db74">&#39;nombres&#39;</span>])
-<span style="color:#66d9ef">print</span>(mi_comb[<span style="color:#e6db74">&#39;nombres&#39;</span>][<span style="color:#ae81ff">1</span>])
-<span style="color:#66d9ef">print</span>(mi_comb[<span style="color:#e6db74">&#39;edades&#39;</span>][<span style="color:#ae81ff">2</span>])
+print(mi_comb[<span style="color:#e6db74">&#39;nombres&#39;</span>])
+print(mi_comb[<span style="color:#e6db74">&#39;nombres&#39;</span>][<span style="color:#ae81ff">1</span>])
+print(mi_comb[<span style="color:#e6db74">&#39;edades&#39;</span>][<span style="color:#ae81ff">2</span>])
 </code></pre></div><p><em>Resultado</em>:</p>
 <pre><code>['Juan', 'Pedro', 'Maria']
 Pedro
 15
 </code></pre>
 <p>En el ejemplo anterior, la primer dimensión se estructura en un diccionario y cada registro es una lista. Se puede decir que es una estructura de <strong>2x3</strong> porque la primer dimensión (el diccionario) tiene dos registros y la segunda (las listas) tienen tres registros.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># También se pueden crear listas de diccionarios</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># También se pueden crear listas de diccionarios</span>
 mi_otra_com <span style="color:#f92672">=</span> [
     {
         <span style="color:#e6db74">&#39;nombre&#39;</span>: <span style="color:#e6db74">&#39;Juan&#39;</span>,
@@ -331,9 +331,9 @@ mi_otra_com <span style="color:#f92672">=</span> [
     },
 ]
 
-<span style="color:#66d9ef">print</span>(mi_otra_com)
-<span style="color:#66d9ef">print</span>(mi_otra_com[<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;nombre&#39;</span>])
-<span style="color:#66d9ef">print</span>(mi_otra_com[<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;edad&#39;</span>])
+print(mi_otra_com)
+print(mi_otra_com[<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;nombre&#39;</span>])
+print(mi_otra_com[<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;edad&#39;</span>])
 </code></pre></div><p><em>Resultado</em>:
 [{&lsquo;nombre&rsquo;: &lsquo;Juan&rsquo;, &lsquo;edad&rsquo;: 20}, {&lsquo;nombre&rsquo;: &lsquo;Pedro&rsquo;, &lsquo;edad&rsquo;: 20}, {&lsquo;nombre&rsquo;: &lsquo;Maria&rsquo;, &lsquo;edad&rsquo;: 15}]
 Pedro
@@ -341,12 +341,12 @@ Pedro
 <p>En muchos lenguajes de programación, este tipo de estructuras de datos se conocen como <em>estructuras anidadas</em>. En Python existen muchas más estructuras para diferentes propósitos. La <a href="https://docs.python.org/3/tutorial/datastructures.html">documentación oficial</a> es un excelente punto de partida para aprender más sobre ellas. Además, <a href="https://gto76.github.io/python-cheatsheet/">esta maravillosa guía</a> recopila la forma de realizar operaciones con las estructuras para sacarles el mayor provecho.</p>
 <h4 id="primer-ejemplo">Primer ejemplo</h4>
 <p>Crear una <em><strong>lista de listas</strong></em> llamada <code>nueva_lista</code> que contenga 3 registros de 3 registros cada uno (el contenido no importa). Imprimir el segundo valor del segundo registro.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nueva_lista <span style="color:#f92672">=</span> [
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nueva_lista <span style="color:#f92672">=</span> [
     [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>],
     [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>],
     [<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>]
 ]
-<span style="color:#66d9ef">print</span>(nueva_lista[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>])
+print(nueva_lista[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>])
 </code></pre></div><p><em>Resultado</em>:</p>
 <pre><code>4
 </code></pre>
@@ -358,7 +358,7 @@ Pedro
 <li>la cantidad de aprobados en el último registro</li>
 <li>el porcentaje de aprobados en el segundo registro</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nueva_2 <span style="color:#f92672">=</span> [
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nueva_2 <span style="color:#f92672">=</span> [
     {
         <span style="color:#e6db74">&#34;curso&#34;</span>: <span style="color:#e6db74">&#34;AI&#34;</span>,
         <span style="color:#e6db74">&#34;inscritos&#34;</span>: <span style="color:#ae81ff">20</span>,
@@ -375,11 +375,11 @@ Pedro
         <span style="color:#e6db74">&#34;aprobados&#34;</span>: <span style="color:#ae81ff">21</span>
     }
 ]
-<span style="color:#66d9ef">print</span>(nueva_2[<span style="color:#ae81ff">2</span>][<span style="color:#e6db74">&#34;inscritos&#34;</span>])
-<span style="color:#66d9ef">print</span>(nueva_2[<span style="color:#ae81ff">2</span>][<span style="color:#e6db74">&#34;aprobados&#34;</span>])
+print(nueva_2[<span style="color:#ae81ff">2</span>][<span style="color:#e6db74">&#34;inscritos&#34;</span>])
+print(nueva_2[<span style="color:#ae81ff">2</span>][<span style="color:#e6db74">&#34;aprobados&#34;</span>])
 
 <span style="color:#75715e">#&#34;aprobados&#34; / &#34;inscritos&#34;</span>
-<span style="color:#66d9ef">print</span>(nueva_2[<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;aprobados&#34;</span>] <span style="color:#f92672">/</span> nueva_2[<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;inscritos&#34;</span>])
+print(nueva_2[<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;aprobados&#34;</span>] <span style="color:#f92672">/</span> nueva_2[<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;inscritos&#34;</span>])
 
 
 </code></pre></div><p><em>Resultado</em>:</p>

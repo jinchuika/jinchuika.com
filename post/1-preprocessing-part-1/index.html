@@ -209,13 +209,13 @@ Pretty much everything we do in an AI algorithm are matrix operations."/>
 <p>You can find all the code for this series in the <a href="https://github.com/jinchuika/preprocessing-tutorial/blob/master/part-1.ipynb">GitHub repo</a>.</p>
 </blockquote>
 <p>As always, we&rsquo;ll start by loading the data and do a basic exploration of it.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
 raw_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data.csv&#39;</span>)
 <span style="color:#75715e"># raw_df.info() # display all the columns and their data type</span>
 </code></pre></div><p>The very first thing to do is choosing what features could be useful for training the model. Let&rsquo;s start by discriminating what features definitely won&rsquo;t contribute and then choosing which ones could.</p>
 <p>As rule of thumb, using unique non-numerical values is not useful since we want the model to generalize. So columns like <code>ID</code> and <code>Name</code> have to go. Features that are highly correlated to each other or are directly calculations don&rsquo;t need to be included twice. For example, if we store the birth date, we don&rsquo;t need to include the age since it is a result from the prior. In this case, <code>Overall</code> is the score resulting from the rest of the features, so there&rsquo;s no need to have it.</p>
 <p>Knowing what features influence the outcome of the objective one is a complex task. For the sake of this post lenght, we&rsquo;ll arbitrarily pick some based on what we think impacts a player&rsquo;s skill. Once the features are selected, let&rsquo;s make a new data frame with only the colums we chose.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># it&#39;s useful to have the columns in a list you can modify easily</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># it&#39;s useful to have the columns in a list you can modify easily</span>
 useful_columns <span style="color:#f92672">=</span> [
     <span style="color:#e6db74">&#39;Age&#39;</span>,
     <span style="color:#e6db74">&#39;Preferred Foot&#39;</span>,
@@ -230,7 +230,7 @@ useful_columns <span style="color:#f92672">=</span> [
     <span style="color:#e6db74">&#39;Position&#39;</span>, <span style="color:#75715e"># I like to let my objective columns at the end</span>
 ]
 working_df <span style="color:#f92672">=</span> raw_df[useful_columns]
-<span style="color:#66d9ef">print</span>(working_df<span style="color:#f92672">.</span>head())
+print(working_df<span style="color:#f92672">.</span>head())
 </code></pre></div><pre><code>   Age Preferred Foot Height  Weight  Agility  Strength  Dribbling  Jumping  \
 0   31           Left    5'7  159lbs     91.0      59.0       97.0     68.0   
 1   33          Right    6'2  183lbs     87.0      79.0       88.0     95.0   
@@ -261,7 +261,7 @@ working_df <span style="color:#f92672">=</span> raw_df[useful_columns]
 <li>&hellip;</li>
 </ul>
 <p>We can achieve this with the <code>LabelEncoder</code> class in the <code>preprocessing</code> module of Scikit learn.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> LabelEncoder
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> LabelEncoder
 <span style="color:#75715e"># create the encoder for the colum</span>
 position_encoder <span style="color:#f92672">=</span> LabelEncoder()
 <span style="color:#75715e"># learn the classes and assign a code to each</span>
@@ -273,13 +273,13 @@ encoded_position
 </code></pre></div><pre><code>array([21, 26, 14, ..., 26, 24,  4])
 </code></pre>
 <p>For getting back the original classes from the numerical representations, we can use the <code>inverse_transform</code> method from the encoder.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">position_encoder<span style="color:#f92672">.</span>inverse_transform(encoded_position)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">position_encoder<span style="color:#f92672">.</span>inverse_transform(encoded_position)
 </code></pre></div><pre><code>array(['RF', 'ST', 'LW', ..., 'ST', 'RW', 'CM'], dtype=object)
 </code></pre>
 <h2 id="scaling">Scaling</h2>
 <p>For continious values, there&rsquo;s no reason to transform them into numerical representations. How ever, a model can have some difficulties on learning patterns in the data if it has a very large range of values.</p>
 <p>For example, a model could take some time learning patterns for values ranging from <code>0 to 255</code> (like the intensity of a pixel in an image), but it&rsquo;d take a very short time with values from <code>0 to 1</code>. Since a value of <code>125</code> in a range from <code>0 to 255</code> represents the sames as <code>0.5</code> in a range from <code>0 to 1</code>, we can change the scale of the first range in order to make it more efficient. This is what the <strong>scaling</strong> process does.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> MinMaxScaler
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> MinMaxScaler
 
 <span style="color:#75715e"># There are many types of scalers</span>
 strength_scaler <span style="color:#f92672">=</span> MinMaxScaler()
@@ -298,7 +298,7 @@ scaled_strength
 </code></pre>
 <h2 id="finishing-the-pipeline">Finishing the pipeline</h2>
 <p>How to store the transformed values depends on your preference and attributes of your data set. Since this case has a data set relatively small, we can create a copy of it with the transformed values.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># New data frame</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># New data frame</span>
 clean_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
 
 <span style="color:#75715e"># I will create a dictionary for storing all my encoders</span>
@@ -326,7 +326,7 @@ scalers <span style="color:#f92672">=</span> {
     scaler<span style="color:#f92672">.</span>fit(working_df[[col]])
     clean_df[col] <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>transform(working_df[[col]])
 
-<span style="color:#66d9ef">print</span>(clean_df<span style="color:#f92672">.</span>head())
+print(clean_df<span style="color:#f92672">.</span>head())
 </code></pre></div><pre><code>   Preferred Foot  Position   Agility  Strength  Dribbling  Jumping   Marking  \
 0               0        21  0.939024    0.5250   1.000000   0.6625  0.329670   
 1               1        26  0.890244    0.7750   0.903226   1.0000  0.274725   
@@ -342,7 +342,7 @@ scalers <span style="color:#f92672">=</span> {
 4       0.651685  
 </code></pre>
 <p>This new <code>clean_df</code> looks really good for now, so I&rsquo;m gonna finish this part of the series by exporting it into a new file I can keep using later on.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clean_df<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;clean_data.csv&#39;</span>, index<span style="color:#f92672">=</span>None)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clean_df<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;clean_data.csv&#39;</span>, index<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
 </code></pre></div><p>I will cover what we&rsquo;ll do with the <code>Height</code> and <code>Weight</code> columns in the next part of the series, as well as some more tricks to do with the stuff i covered in this one.</p>
 
     </div>
