@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flesh and Blood TCG - Card List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    #header {
+      background-color: #1b1b1b;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    #searchContainer {
+      text-align: center;
+      padding: 20px;
+    }
+
+    #search {
+      width: 300px;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    #tableContainer {
+      margin: 20px auto;
+      max-width: 800px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      background-color: #f5f5f5;
+      padding: 12px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    td {
+      padding: 10px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e0e0e0;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      border: none;
+      background-color: #f5f5f5;
+    }
+
+    .pagination button.active {
+      background-color: #1b1b1b;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">Flesh and Blood TCG - Card List</div>
+  <div id="searchContainer">
+    <label for="search">Filter:</label>
+    <input type="text" id="search" placeholder="Search by Player, Hero or Event">
+  </div>
+  <div id="tableContainer"></div>
+  <div class="pagination" id="pagination"></div>
+
+  <script>
+    const itemsPerPage = 50;
+    let currentPage = 1;
+    let jsonData = []; 
+
+    function createTableFromJSON(data) {
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const tableData = data.slice(startIndex, endIndex);
+
+      const table = document.createElement("table");
+      const headerRow = document.createElement("tr");
+      for (const key in tableData[0]) {
+        const th = document.createElement("th");
+        th.textContent = key;
+        headerRow.appendChild(th);
+      }
+      table.appendChild(headerRow);
+
+      tableData.forEach((data) => {
+        const dataRow = document.createElement("tr");
+        for (const key in data) {
+          const td = document.createElement("td");
+          td.textContent = data[key];
+          dataRow.appendChild(td);
+        }
+        table.appendChild(dataRow);
+      });
+
+      return table;
+    }
+
+    function filterFunction(data) {
+      const searchInput = document.getElementById("search").value.toLowerCase();
+      return (
+        data.Player.toLowerCase().includes(searchInput) ||
+        data.Hero.toLowerCase().includes(searchInput) ||
+        data.Event.toLowerCase().includes(searchInput)
+      );
+    }
+
+    function updatePaginationButtons(dataLength) {
+      const totalPages = Math.ceil(dataLength / itemsPerPage);
+      const paginationContainer = document.getElementById("pagination");
+      paginationContainer.innerHTML = "";
+
+      for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement("button");
+        button.textContent = i;
+        button.addEventListener("click", () => {
+          currentPage = i;
+          updateTableAndPagination();
+        });
+
+        if (i === currentPage) {
+          button.classList.add("active");
+        }
+
+        paginationContainer.appendChild(button);
+      }
+    }
+
+    function updateTableAndPagination() {
+      const filteredData = jsonData.filter(filterFunction);
+      updatePaginationButtons(filteredData.length);
+
+      const tableContainer = document.getElementById("tableContainer");
+      tableContainer.innerHTML = "";
+      const table = createTableFromJSON(filteredData);
+      tableContainer.appendChild(table);
+    }
+
+    async function fetchDataAndCreateTable() {
+      try {
+        const response = await fetch("/post/4-fab-players/data.json");
+        jsonData = await response.json();
+        updateTableAndPagination();
+      } catch (error) {
+        console.error("Error fetching or parsing JSON data:", error);
+      }
+    }
+
+    
+    const searchInput = document.getElementById("search");
+    searchInput.addEventListener("keyup", updateTableAndPagination);
+
+    
+    fetchDataAndCreateTable();
+  </script>
+</body>
+</html>
